@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include("base/head.html", {
+"title": "Условия обработки персональных данных"
+})
+
+<body>
+  @@include("icons/icons.svg")
+  <div class="wrapper" data-wrapper>
+    @@include("base/header.html", {
+    "index": false
+    })
+    <main class="main">
+      @@include("pages/conditions/conditions.html")
+    </main>
+    @@include("base/footer.html")
+    @@include("ui/up.html")
+  </div>
+  @@include("base/js.html")
+</body>
+
+</html>

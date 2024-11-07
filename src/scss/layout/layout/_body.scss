@@ -1,0 +1,14 @@
+@use "../../functions/functions";
+@use "../../mixins/mixins";
+@use "../../variables/variables";
+
+body {
+  font-family: variables.$font-montserrat;
+  font-size: 14px;
+  line-height: 1.5;
+  color: variables.$color-text;
+
+  .scroll-lock & {
+    overflow: hidden;
+  }
+}
