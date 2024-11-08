@@ -1,4 +1,9 @@
-@use "root/root";
+@use "../functions/functions";
 
 :root {
+  --header-height: 154px;
+
+  @media (min-width: #{768 + 0.1px}) {
+    --header-height: 228px;
+  }
 }

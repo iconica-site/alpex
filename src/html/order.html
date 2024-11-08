@@ -9,7 +9,13 @@
   @@include("icons/icons.svg")
   <div class="wrapper" data-wrapper>
     @@include("base/header.html", {
-    "index": false
+    "index": false,
+    "contacts": false,
+    "delivery": false,
+    "wholesalers": false,
+    "about": false,
+    "login": false,
+    "registration": false
     })
     <main class="main">
       @@include("pages/order/order.html")

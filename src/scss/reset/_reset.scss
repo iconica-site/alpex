@@ -12,11 +12,6 @@
   margin: 0;
   border: none;
 
-  &:not(body):has(> img, > svg) {
-    flex: 0 0 auto;
-    font-size: 0;
-  }
-
   &,
   &::before,
   &::after {
