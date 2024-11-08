@@ -87,8 +87,10 @@
       transition-duration: 0.3s;
     }
 
-    @include mixins.hover {
-      color: variables.$color-header-top-hover;
+    @media (min-width: #{768 + 0.1px}) {
+      @include mixins.hover {
+        color: variables.$color-header-top-hover;
+      }
     }
 
     @media (max-width: 768px) {
