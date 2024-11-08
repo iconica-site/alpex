@@ -89,8 +89,10 @@
 
     @include mixins.hover {
       color: variables.$color-header-top-bg;
+    }
 
-      @media (min-width: #{768 + 0.1px}) {
+    @media (min-width: #{768 + 0.1px}) {
+      @include mixins.hover {
         color: variables.$color-header-top-hover;
       }
     }
