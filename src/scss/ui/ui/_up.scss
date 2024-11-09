@@ -14,7 +14,7 @@
   aspect-ratio: 1 / 1;
   font-size: 0;
   color: variables.$color-white;
-  background-color: variables.$color-up-bg;
+  background-color: variables.$color-hover;
   border-radius: 5px;
 
   html:not(.scrolled) & {
@@ -28,7 +28,7 @@
   }
 
   @include mixins.hover {
-    background-color: variables.$color-up-hover;
+    background-color: variables.$color-text-2;
   }
 
   svg {

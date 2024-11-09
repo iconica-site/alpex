@@ -1,0 +1,67 @@
+<dialog class="cart-dialog" id="dialog-cart">
+  <div class="cart-dialog__inner" data-dialog="inner">
+    <div class="cart-dialog__header">
+      <h2 class="cart-dialog-title">
+        <span class="cart-dialog-title__text">Корзина</span>
+        <span class="cart-dialog-title__count">1</span>
+      </h2>
+      <button class="cart-dialog__close" data-dialog="close" aria-label="#"></button>
+    </div>
+    <div class="cart-dialog__products">
+      <article class="cart-dialog-product">
+        <a class="cart-dialog-product__image ibg" @@if(product){href="" aria-current="page" } @@if(!product){href="product.html" }>
+          <img src="@img/images/dialogs/cart/1.jpg" alt="#" loading="lazy">
+        </a>
+        <div class="cart-dialog-product__inner">
+          <h3 class="cart-dialog-product__title">
+            <a @@if(product){href="" aria-current="page" } @@if(!product){href="product.html" }>Куртка мужская зимняя</a>
+          </h3>
+          <div class="cart-dialog-product__row">
+            <span class="cart-dialog-product__text cart-dialog-product__text--count">1</span>
+            <span class="cart-dialog-product__text">×</span>
+            <span class="cart-dialog-price">
+              <span class="cart-dialog-price__value">11 000</span>
+              <span class="cart-dialog-price__currency">₽</span>
+            </span>
+          </div>
+        </div>
+        <button class="cart-dialog-product__button" aria-label="#">
+          <svg width="24" height="24" aria-hidden="true">
+            <use xlink:href="#icon-bin"></use>
+          </svg>
+        </button>
+      </article>
+    </div>
+    <div class="cart-dialog__bottom cart-dialog-bottom">
+      <div class="cart-dialog-bottom__item">
+        <div class="cart-dialog-bottom__row">
+          <div class="cart-dialog-bottom__label">
+            <span class="cart-dialog-bottom__count">1</span>
+            <span class="cart-dialog-bottom__text">шт.</span>
+          </div>
+          <div class="cart-dialog-bottom__value cart-dialog-price">
+            <span class="cart-dialog-price__value">11 000</span>
+            <span class="cart-dialog-price__currency">₽</span>
+          </div>
+        </div>
+        <div class="cart-dialog-bottom__row">
+          <div class="cart-dialog-bottom__label">Доставка</div>
+          <div class="cart-dialog-bottom__value">Бесплатно!</div>
+        </div>
+      </div>
+      <div class="cart-dialog-bottom__item">
+        <div class="cart-dialog-bottom__row">
+          <div class="cart-dialog-bottom__label">Итого, к оплате:</div>
+          <div class="cart-dialog-bottom__value cart-dialog-price">
+            <span class="cart-dialog-price__value">11 000</span>
+            <span class="cart-dialog-price__currency">₽</span>
+          </div>
+        </div>
+      </div>
+      <div class="cart-dialog-bottom__buttons">
+        <a class="cart-dialog-bottom__button @@if(cart){  cart-dialog-bottom__button--active }" @@if(cart){href="" aria-current="page" } @@if(!cart){href="cart.html" }>Открыть корзину</a>
+        <a class="cart-dialog-bottom__button @@if(order){  cart-dialog-bottom__button--active }" @@if(order){href="" aria-current="page" } @@if(!order){href="order.html" }>Оформить заказ</a>
+      </div>
+    </div>
+  </div>
+</dialog>

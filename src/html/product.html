@@ -22,6 +22,11 @@
     </main>
     @@include("base/footer.html")
     @@include("ui/up.html")
+    @@include("dialogs/cart-dialog.html", {
+    "product": true,
+    "cart": false,
+    "order": false
+    })
   </div>
   @@include("base/js.html")
 </body>

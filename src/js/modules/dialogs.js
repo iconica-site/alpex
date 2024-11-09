@@ -27,10 +27,13 @@ class Dialogs {
         const dialog = document.getElementById(dialogId);
 
         if (dialog) {
+          const buttonId = `dialog-button-id-${Date.now().toString(36)}-${Math.random().toString(36).substring(2)}`;
+
           button.setAttribute("aria-controls", dialogId);
           button.ariaExpanded = false;
+          button.id = buttonId;
 
-          this.#dialogs[dialogId] = {
+          this.#dialogs[buttonId] = {
             $button: button,
             $dialog: dialog,
             isActive: false
@@ -54,6 +57,7 @@ class Dialogs {
 
       $button.addEventListener("click", () => {
         if (!$button.hasAttribute("data-disabled")) {
+          $dialog.dataset.button = $button.id;
           $dialog.showModal();
           $button.ariaExpanded = true;
           $dialog.addEventListener("click", this.#onClickDialog);
@@ -84,13 +88,16 @@ class Dialogs {
 
   /** @param {Event} event */
   #dialogCloseEvent(event) {
+    /** @type {{target: HTMLDialogElement}} */
     const { target } = event;
-    const { id } = target;
-    const { [id]: dialog } = this.#dialogs;
+    const { dataset } = target;
+    const { button } = dataset;
+    const { [button]: dialog } = this.#dialogs;
     const { $button, $dialog } = dialog;
 
     $button.ariaExpanded = false;
     $button.focus();
+    $dialog.removeAttribute("data-button");
     $dialog.removeEventListener("click", this.#onClickDialog);
     $dialog.removeEventListener("close", this.#onCloseDialog);
     dialog.isActive = false;

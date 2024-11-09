@@ -1,0 +1,318 @@
+@use "../../functions/functions";
+@use "../../mixins/mixins";
+@use "../../variables/variables";
+
+@mixin space {
+  white-space: nowrap;
+
+  &:has(> *:nth-child(2)) > *:first-child::after {
+    content: " ";
+  }
+}
+
+.cart-dialog {
+  color: variables.$color-text-2;
+
+  // .cart-dialog__inner
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    inline-size: 100%;
+    max-inline-size: 402px;
+    margin-inline-start: auto;
+    background-color: variables.$color-white;
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: transform;
+      transition-duration: 0.3s;
+    }
+
+    .cart-dialog:not([open]) & {
+      transform: translateX(100%);
+    }
+  }
+
+  // .cart-dialog__header
+  &__header {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    min-block-size: 44px;
+    padding-block: 5px;
+    padding-inline: 20px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: variables.$color-text-2;
+    background-color: variables.$color-bg;
+  }
+
+  // .cart-dialog__close
+  &__close {
+    position: relative;
+    flex: 0 0 auto;
+    inline-size: 20px;
+    aspect-ratio: 1 / 1;
+    font-size: 0;
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: color;
+      transition-duration: 0.3s;
+    }
+
+    @include mixins.hover {
+      color: variables.$color-hover;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
+      inline-size: 100%;
+      block-size: 2px;
+      background-color: currentColor;
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+
+  // .cart-dialog__products
+  &__products {
+    padding-block: 20px;
+  }
+
+  // .cart-dialog__bottom
+  &__bottom {
+    margin-block-start: auto;
+  }
+}
+
+.cart-dialog-title {
+  @include space;
+
+  // .cart-dialog-title__text
+  &__text {
+  }
+
+  // .cart-dialog-title__count
+  &__count {
+    &::before {
+      content: "(";
+    }
+
+    &::after {
+      content: ")";
+    }
+  }
+}
+
+.cart-dialog-product {
+  display: flex;
+  align-items: start;
+  gap: functions.responsive-value(12, 5);
+  padding-block: 10px;
+  padding-inline: 20px;
+
+  &:not(:last-child) {
+    border-block-end: 1px solid variables.$color-border;
+  }
+
+  // .cart-dialog-product__image
+  &__image {
+    flex: 0 0 auto;
+    inline-size: functions.responsive-value(80, 70);
+    aspect-ratio: 80 / 100;
+    font-size: 0;
+
+    img {
+      object-fit: contain;
+    }
+  }
+
+  // .cart-dialog-product__inner
+  &__inner {
+    flex: 1 1 auto;
+
+    > *:last-child {
+      margin-block-end: 0;
+    }
+  }
+
+  // .cart-dialog-product__title
+  &__title {
+    margin-block-end: 10px;
+    line-height: calc(18 / 14);
+
+    a {
+      @include mixins.prefers-reduced-motion {
+        transition-property: color;
+        transition-duration: 0.3s;
+      }
+
+      @include mixins.hover {
+        color: variables.$color-hover;
+      }
+    }
+  }
+
+  // .cart-dialog-product__row
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  // .cart-dialog-product__text
+  &__text {
+    // .cart-dialog-product__text--count
+    &--count {
+    }
+  }
+
+  // .cart-dialog-product__button
+  &__button {
+    flex: 0 0 auto;
+    font-size: 0;
+    color: variables.$color-bin;
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: color;
+      transition-duration: 0.3s;
+    }
+
+    @include mixins.hover {
+      color: variables.$color-hover;
+    }
+  }
+}
+
+.cart-dialog-price {
+  font-weight: 600;
+  font-size: 16px;
+
+  @include space;
+
+  // .cart-dialog-price__value
+  &__value {
+  }
+
+  // .cart-dialog-price__currency
+  &__currency {
+  }
+}
+
+.cart-dialog-bottom {
+  border-block-start: 1px solid variables.$color-border;
+
+  // .cart-dialog-bottom__item
+  &__item {
+    padding-block: 10px;
+    padding-inline: 20px;
+
+    &:not(:first-child) {
+      border-block-start: 1px solid variables.$color-border;
+    }
+  }
+
+  // .cart-dialog-bottom__row
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 1;
+    white-space: nowrap;
+
+    &:not(:last-child) {
+      margin-block-end: 10px;
+    }
+  }
+
+  // .cart-dialog-bottom__label
+  &__label {
+    font-weight: 500;
+
+    @include space();
+  }
+
+  // .cart-dialog-bottom__count
+  &__count {
+  }
+
+  // .cart-dialog-bottom__text
+  &__text {
+  }
+
+  // .cart-dialog-bottom__value
+  &__value {
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  // .cart-dialog-bottom__buttons
+  &__buttons {
+    position: sticky;
+    inset-block-end: 0;
+    z-index: 1;
+    display: grid;
+    row-gap: 5px;
+    column-gap: 15px;
+    padding: 15px;
+    background-color: variables.$color-whitesmoke;
+
+    &:not(:has(.cart-dialog-bottom__button--active)) {
+      @media (min-width: #{360 + 0.1px}) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+
+  // .cart-dialog-bottom__button
+  &__button {
+    --outline-color: #{variables.$color-hover};
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inline-size: 100%;
+    min-block-size: 44px;
+    padding: 5px;
+    font-weight: 500;
+    font-size: 13px;
+    text-transform: uppercase;
+    text-align: center;
+    color: variables.$color-white;
+    background-color: variables.$color-hover;
+    border-radius: 5px;
+
+    // .cart-dialog-bottom__button--active
+    &--active {
+      display: none;
+    }
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: background-color;
+      transition-duration: 0.3s;
+    }
+
+    @include mixins.hover {
+      background-color: variables.$color-text-2;
+    }
+  }
+}

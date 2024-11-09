@@ -5,3 +5,4 @@ import "./scripts/spoilers-region.js";
 import "./scripts/burger.js";
 import "./scripts/spoilers.js";
 import "./scripts/header-blocks-observer.js";
+import "./scripts/dialogs.js";
