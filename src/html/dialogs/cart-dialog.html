@@ -59,9 +59,18 @@
         </div>
       </div>
       <div class="cart-dialog-bottom__buttons">
-        <a class="cart-dialog-bottom__button @@if(cart){  cart-dialog-bottom__button--active }" @@if(cart){href="" aria-current="page" } @@if(!cart){href="cart.html" }>Открыть корзину</a>
-        <a class="cart-dialog-bottom__button @@if(order){  cart-dialog-bottom__button--active }" @@if(order){href="" aria-current="page" } @@if(!order){href="order.html" }>Оформить заказ</a>
+        <a class="cart-dialog-bottom__button @@if(cart){  cart-dialog-bottom__button--active } button" @@if(cart){href="" aria-current="page" } @@if(!cart){href="cart.html" }>Открыть корзину</a>
+        <a class="cart-dialog-bottom__button @@if(order){  cart-dialog-bottom__button--active } button" @@if(order){href="" aria-current="page" } @@if(!order){href="order.html" }>Оформить заказ</a>
       </div>
+    </div>
+    <div class="cart-dialog__empty cart-dialog-empty">
+      <div class="cart-dialog-empty__icon">
+        <svg width="100" height="100" aria-hidden="true">
+          <use xlink:href="#icon-sad-cart"></use>
+        </svg>
+      </div>
+      <p class="cart-dialog-empty__text">В вашей корзине больше нет товаров</p>
+      <a class="cart-dialog-empty__link button" @@if(index){href="" aria-current="page" } @@if(!index){href="./" }>Продолжить покупки</a>
     </div>
   </div>
 </dialog>

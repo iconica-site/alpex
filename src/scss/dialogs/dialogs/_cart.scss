@@ -94,11 +94,19 @@
   // .cart-dialog__products
   &__products {
     padding-block: 20px;
+
+    &:empty {
+      display: none;
+    }
   }
 
   // .cart-dialog__bottom
   &__bottom {
     margin-block-start: auto;
+  }
+
+  // .cart-dialog__empty
+  &__empty {
   }
 }
 
@@ -111,6 +119,11 @@
 
   // .cart-dialog-title__count
   &__count {
+    .cart-dialog:not(:has(.cart-dialog__products)) &,
+    .cart-dialog:has(.cart-dialog__products:empty) & {
+      display: none;
+    }
+
     &::before {
       content: "(";
     }
@@ -221,6 +234,11 @@
 .cart-dialog-bottom {
   border-block-start: 1px solid variables.$color-border;
 
+  .cart-dialog:not(:has(.cart-dialog__products)) &,
+  .cart-dialog:has(.cart-dialog__products:empty) & {
+    display: none;
+  }
+
   // .cart-dialog-bottom__item
   &__item {
     padding-block: 10px;
@@ -285,34 +303,40 @@
 
   // .cart-dialog-bottom__button
   &__button {
-    --outline-color: #{variables.$color-hover};
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    inline-size: 100%;
-    min-block-size: 44px;
-    padding: 5px;
-    font-weight: 500;
-    font-size: 13px;
-    text-transform: uppercase;
-    text-align: center;
-    color: variables.$color-white;
-    background-color: variables.$color-hover;
-    border-radius: 5px;
-
     // .cart-dialog-bottom__button--active
     &--active {
       display: none;
     }
+  }
+}
 
-    @include mixins.prefers-reduced-motion {
-      transition-property: background-color;
-      transition-duration: 0.3s;
-    }
+.cart-dialog-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  flex: 1 1 auto;
+  padding: 20px;
+  text-align: center;
 
-    @include mixins.hover {
-      background-color: variables.$color-text-2;
-    }
+  .cart-dialog:has(.cart-dialog__products:not(:empty)) & {
+    display: none;
+  }
+
+  // .cart-dialog-empty__icon
+  &__icon {
+    flex: 0 0 auto;
+    font-size: 0;
+    color: variables.$color-black;
+  }
+
+  // .cart-dialog-empty__text
+  &__text {
+    color: variables.$color-text;
+  }
+
+  // .cart-dialog-empty__link
+  &__link {
+    margin-block-start: auto;
   }
 }

@@ -3,47 +3,28 @@
 @use "../../variables/variables";
 
 .button {
-  --outline-color: var(--button-outline-color, currentColor);
+  --outline-color: #{variables.$color-hover};
 
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--button-gap);
-  inline-size: var(--button-width);
-  min-inline-size: var(--button-min-width);
-  max-inline-size: var(--button-max-width);
-  min-block-size: var(--button-min-height);
-  padding-block: var(--button-padding-block, 5px);
-  padding-inline: var(--button-padding-inline);
-  font-family: var(--button-font-family);
-  font-weight: var(--button-font-weight);
-  font-style: var(--button-font-style);
-  font-size: var(--button-font-size);
-  line-height: var(--button-line-height);
+  inline-size: 100%;
+  min-block-size: 44px;
+  padding: 5px;
+  font-weight: 500;
+  font-size: 13px;
+  text-transform: uppercase;
   text-align: center;
-  color: var(--button-color);
-  background-color: var(--button-background-color);
-  border: var(--button-border-width) solid var(--button-border-color, currentColor);
-  border-radius: var(--button-border-radius);
+  color: variables.$color-white;
+  background-color: variables.$color-hover;
+  border-radius: 5px;
 
   @include mixins.prefers-reduced-motion {
-    transition-property: color, background-color, border-color, var(--button-transition-property);
+    transition-property: background-color;
     transition-duration: 0.3s;
   }
 
   @include mixins.hover {
-    --button-color: var(--button-color-hover);
-    --button-background-color: var(--button-background-color-hover);
-    --button-border-color: var(--button-border-color-hover);
-  }
-
-  // .button__icon
-  &__icon {
-    flex: 0 0 auto;
-    font-size: 0;
-  }
-
-  // .button__text
-  &__text {
+    background-color: variables.$color-text-2;
   }
 }
