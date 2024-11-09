@@ -1,4 +1,4 @@
-// import "./swiper/swiper.js";
+import "./swiper/swiper.js";
 // import "./nouislider/nouislider.js";
 // import "./air-datepicker/air-datepicker.js";
 // import "./fslightbox/fslightbox.js";

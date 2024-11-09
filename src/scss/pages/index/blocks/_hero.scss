@@ -1,0 +1,112 @@
+@use "../../../functions/functions";
+@use "../../../mixins/mixins";
+@use "../../../variables/variables";
+
+.hero {
+  padding-block: 10px 20px;
+
+  // .hero__container
+  &__container {
+  }
+
+  // .hero__slider
+  &__slider {
+  }
+}
+
+.hero-slider {
+  font-size: 0;
+
+  // .hero-slider__wrapper
+  &__wrapper {
+  }
+
+  // .hero-slider__slide
+  &__slide {
+    aspect-ratio: 1396 / 582.33;
+  }
+
+  // .hero-slider__arrows
+  &__arrows {
+  }
+
+  // .hero-slider__pagination
+  &__pagination {
+    --swiper-pagination-bullet-horizontal-gap: #{functions.responsive-value(3, 2)};
+    --swiper-pagination-color: #{variables.$color-hover};
+    --swiper-pagination-bullet-size: #{functions.responsive-value(12, 10)};
+    --swiper-pagination-bullet-border-radius: 0;
+    --swiper-pagination-bullet-inactive-color: #{variables.$color-pagination};
+    --swiper-pagination-bullet-inactive-opacity: 1;
+
+    position: absolute;
+    inset-block-end: functions.responsive-value(14, 6);
+    inset-inline: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+
+    @media (hover: hover) {
+      @include mixins.prefers-reduced-motion {
+        transition-property: opacity;
+        transition-duration: 0.3s;
+      }
+
+      .hero-slider:not(:hover) & {
+        opacity: 0;
+      }
+    }
+
+    .swiper-pagination-bullet {
+      flex: 0 0 auto;
+      font-size: 0;
+      transition-property: background-color;
+      transition-duration: 0.3s;
+      pointer-events: all;
+
+      @include mixins.prefers-reduced-motion {
+        transition-property: background-color;
+        transition-duration: 0.3s;
+      }
+
+      &:not(&-active) {
+        @include mixins.hover {
+          background-color: variables.$color-hover;
+        }
+      }
+
+      &-active {
+        cursor: default;
+      }
+    }
+  }
+}
+
+.hero-arrows {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+
+  // .hero-arrows__button
+  &__button {
+    flex: 0 0 auto;
+    inline-size: functions.responsive-value(68, 38);
+    pointer-events: all;
+
+    // .hero-arrows__button--prev
+    &--prev {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='undefined' viewBox='0 -960 960 960'%3E%3Cpath d='M640-200 200-480l440-280v560Zm-80-280Zm0 134v-268L350-480l210 134Z'/%3E%3C/svg%3E%0A"),
+        pointer;
+    }
+
+    // .hero-arrows__button--next
+    &--next {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='undefined' viewBox='0 -960 960 960'%3E%3Cpath d='M320-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z'/%3E%3C/svg%3E%0A"),
+        pointer;
+    }
+  }
+}
