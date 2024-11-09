@@ -20,7 +20,16 @@
     <main class="main">
       @@include("pages/catalog/catalog.html")
     </main>
-    @@include("base/footer.html")
+    @@include("base/footer.html", {
+    "privacy": false,
+    "conditions": false,
+    "catalog": true,
+    "delivery": false,
+    "about": false,
+    "contacts": false,
+    "wholesalers": false,
+    "shops": false
+    })
     @@include("ui/up.html")
     @@include("dialogs/cart-dialog.html", {
     "index": false,

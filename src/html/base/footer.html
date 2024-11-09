@@ -1,0 +1,125 @@
+<footer class="footer">
+  <div class="footer__container container">
+    <div class="footer__inner">
+      <div class="footer__main">
+        <div class="footer__logo">
+          <svg width="130" height="23" aria-hidden="true">
+            <use xlink:href="#icon-logo"></use>
+          </svg>
+        </div>
+        <div class="footer__bottom">
+          <p class="footer__copy">&copy; 2017-<span class="footer__current-year">2024</span>&#32;Все права защищены</p>
+          <div class="footer__links">
+            <a class="footer__link" @@if(privacy){href="" aria-current="page" } @@if(!privacy){href="privacy.html" }>Политика конфиденциальности</a>
+            <a class="footer__link" @@if(conditions){href="" aria-current="page" } @@if(!conditions){href="conditions.html" }>Условия обработки персональных данных</a>
+          </div>
+        </div>
+      </div>
+      <nav class="footer__nav" aria-label="#">
+        <ul class="footer-spoilers" data-spoilers data-breakpoint="768" data-accordion="false">
+          <li class="footer-spoilers__item">
+            <h2 class="footer-spoilers__title">
+              <button class="footer-spoilers__button" data-spoiler="button">
+                <span class="footer-spoilers__label">Товары</span>
+                <span class="footer-spoilers__icon" aria-hidden="true">
+                  <svg width="24" height="24">
+                    <use xlink:href="#icon-down"></use>
+                  </svg>
+                </span>
+              </button>
+            </h2>
+            <div class="footer-spoilers__region" data-spoiler="region">
+              <div class="footer-spoilers__inner">
+                <ul class="footer-spoilers__links footer-links">
+                  <li class="footer-links__item">
+                    <a class="footer-links__link footer-link" href="#">Снижение цен</a>
+                  </li>
+                  <li class="footer-links__item">
+                    <a class="footer-links__link footer-link" href="#">Новинки</a>
+                  </li>
+                  <li class="footer-links__item">
+                    <a class="footer-links__link footer-link" href="#">Топ продаж</a>
+                  </li>
+                  <li class="footer-links__item">
+                    <a class="footer-links__link footer-link" @@if(catalog){href="" aria-current="page" } @@if(!catalog){href="catalog.html" }>Каталог товаров</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="footer-spoilers__item">
+            <h2 class="footer-spoilers__title">
+              <button class="footer-spoilers__button" data-spoiler="button">
+                <span class="footer-spoilers__label">Наша компания</span>
+                <span class="footer-spoilers__icon" aria-hidden="true">
+                  <svg width="24" height="24">
+                    <use xlink:href="#icon-down"></use>
+                  </svg>
+                </span>
+              </button>
+            </h2>
+            <div class="footer-spoilers__region" data-spoiler="region">
+              <div class="footer-spoilers__inner">
+                <ul class="footer-spoilers__links footer-links">
+                  <li class="footer-links__item">
+                    <a class="footer-links__link footer-link" @@if(delivery){href="" aria-current="page" } @@if(!delivery){href="delivery.html" }>Доставка</a>
+                  </li>
+                  <li class="footer-links__item">
+                    <a class="footer-links__link footer-link" @@if(about){href="" aria-current="page" } @@if(!about){href="about.html" }>О компании</a>
+                  </li>
+                  <li class="footer-links__item">
+                    <a class="footer-links__link footer-link" @@if(contacts){href="" aria-current="page" } @@if(!contacts){href="contacts.html" }>Контакты</a>
+                  </li>
+                  <li class="footer-links__item">
+                    <a class="footer-links__link footer-link" @@if(wholesalers){href="" aria-current="page" } @@if(!wholesalers){href="wholesalers.html" }>Оптовикам</a>
+                  </li>
+                  <li class="footer-links__item">
+                    <a class="footer-links__link footer-link" @@if(shops){href="" aria-current="page" } @@if(!shops){href="shops.html" }>Магазины</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="footer-spoilers__item">
+            <h2 class="footer-spoilers__title">
+              <button class="footer-spoilers__button" data-spoiler="button">
+                <span class="footer-spoilers__label">О магазине</span>
+                <span class="footer-spoilers__icon" aria-hidden="true">
+                  <svg width="24" height="24">
+                    <use xlink:href="#icon-down"></use>
+                  </svg>
+                </span>
+              </button>
+            </h2>
+            <div class="footer-spoilers__region" data-spoiler="region">
+              <address class="footer-spoilers__inner">
+                <ul class="footer-spoilers__links footer-links">
+                  <li class="footer-links__item">
+                    <div class="footer-links__link footer-link">
+                      <span class="footer-link__icon" aria-hidden="true">
+                        <svg width="25" height="25">
+                          <use xlink:href="#icon-pin"></use>
+                        </svg>
+                      </span>
+                      <span class="footer-link__text">Alpex Shop Россия</span>
+                    </div>
+                  </li>
+                  <li class="footer-links__item">
+                    <a class="footer-links__link footer-link" href="mailto:alpexstory@mail.ru">
+                      <span class="footer-link__icon" aria-hidden="true">
+                        <svg width="25" height="25">
+                          <use xlink:href="#icon-email"></use>
+                        </svg>
+                      </span>
+                      <span class="footer-link__text">alpexstory@mail.ru</span>
+                    </a>
+                  </li>
+                </ul>
+              </address>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</footer>

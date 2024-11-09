@@ -1,0 +1,231 @@
+@use "../../functions/functions";
+@use "../../mixins/mixins";
+@use "../../variables/variables";
+
+.footer {
+  padding-block: functions.responsive-value(35, 15) calc(functions.responsive-value(60, 30) + 40px);
+
+  @media (min-width: #{1225 + 0.1px}) {
+    padding-block: functions.responsive-value(35, 15) functions.responsive-value(60, 30);
+  }
+
+  // .footer__container
+  &__container {
+  }
+
+  // .footer__inner
+  &__inner {
+    display: grid;
+    align-items: start;
+    row-gap: 20px;
+    column-gap: 50px;
+
+    @media (min-width: #{992 + 0.1px}) {
+      grid-template-columns: 1fr 3fr;
+    }
+  }
+
+  // .footer__main
+  &__main {
+    @media (min-width: #{992 + 0.1px}) {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    @media (max-width: 992px) {
+      display: contents;
+    }
+  }
+
+  // .footer__logo
+  &__logo {
+    flex: 0 0 auto;
+    font-size: 0;
+    color: variables.$color-logo;
+  }
+
+  // .footer__bottom
+  &__bottom {
+    display: flex;
+    gap: 15px;
+
+    @media (min-width: #{992 + 0.1px}) {
+      flex-direction: column;
+    }
+
+    @media (max-width: 992px) {
+      flex-wrap: wrap;
+      align-self: start;
+      justify-content: space-between;
+      order: 1;
+    }
+  }
+
+  // .footer__copy
+  &__copy {
+    font-size: 13px;
+  }
+
+  // .footer__current-year
+  &__current-year {
+  }
+
+  // .footer__links
+  &__links {
+    display: flex;
+    align-items: start;
+    column-gap: 20px;
+    row-gap: 5px;
+
+    @media (min-width: #{992 + 0.1px}) {
+      flex-direction: column;
+    }
+
+    @media (max-width: 992px) {
+      flex-wrap: wrap;
+    }
+  }
+
+  // .footer__link
+  &__link {
+    @include mixins.prefers-reduced-motion {
+      transition-property: color;
+      transition-duration: 0.3s;
+    }
+
+    @include mixins.hover {
+      color: variables.$color-hover;
+    }
+  }
+
+  // .footer__nav
+  &__nav {
+  }
+}
+
+.footer-spoilers {
+  display: grid;
+  row-gap: 5px;
+  column-gap: 20px;
+
+  @media (min-width: #{768 + 0.1px}) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  // .footer-spoilers__item
+  &__item {
+  }
+
+  // .footer-spoilers__title
+  &__title {
+    font-weight: 700;
+    font-size: functions.responsive-value(18, 16);
+    line-height: calc(26 / 18);
+    text-transform: uppercase;
+    color: variables.$color-text-2;
+
+    @media (min-width: #{768 + 0.1px}) {
+      margin-block-end: 15px;
+    }
+  }
+
+  // .footer-spoilers__button
+  &__button {
+    @include mixins.hover {
+      @media (max-width: 768px) {
+        color: variables.$color-hover;
+      }
+    }
+
+    @media (max-width: 768px) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      inline-size: 100%;
+      min-block-size: 46px;
+      padding-block: 5px;
+      text-align: start;
+    }
+  }
+
+  // .footer-spoilers__label
+  &__label {
+  }
+
+  // .footer-spoilers__icon
+  &__icon {
+    flex: 0 0 auto;
+    font-size: 0;
+
+    .spoiler-active & {
+      transform: rotate(180deg);
+    }
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: transform;
+      transition-duration: 0.3s;
+    }
+
+    @media (min-width: #{768 + 0.1px}) {
+      display: none;
+    }
+  }
+
+  // .footer-spoilers__region
+  &__region {
+  }
+
+  // .footer-spoilers__inner
+  &__inner {
+  }
+
+  // .footer-spoilers__links
+  &__links {
+  }
+}
+
+.footer-links {
+  // .footer-links__item
+  &__item {
+    &:not(:last-child) {
+      margin-block-end: 5px;
+    }
+  }
+
+  // .footer-links__link
+  &__link {
+  }
+}
+
+.footer-link {
+  white-space: nowrap;
+
+  &[href] {
+    @include mixins.prefers-reduced-motion {
+      transition-property: color;
+      transition-duration: 0.3s;
+    }
+
+    @include mixins.hover {
+      color: variables.$color-hover;
+    }
+  }
+
+  &:has(.footer-link__icon) {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  // .footer-link__icon
+  &__icon {
+    flex: 0 0 auto;
+    font-size: 0;
+  }
+
+  // .footer-link__text
+  &__text {
+  }
+}

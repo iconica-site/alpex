@@ -6,3 +6,4 @@ import "./scripts/burger.js";
 import "./scripts/spoilers.js";
 import "./scripts/header-blocks-observer.js";
 import "./scripts/dialogs.js";
+import "./scripts/current-year.js";
