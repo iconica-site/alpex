@@ -63,8 +63,6 @@
     .swiper-pagination-bullet {
       flex: 0 0 auto;
       font-size: 0;
-      transition-property: background-color;
-      transition-duration: 0.3s;
       pointer-events: all;
 
       @include mixins.prefers-reduced-motion {

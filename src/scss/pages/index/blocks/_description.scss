@@ -1,0 +1,97 @@
+@use "../../../functions/functions";
+@use "../../../mixins/mixins";
+@use "../../../variables/variables";
+
+.description {
+  padding-block: 20px;
+  color: variables.$color-white;
+
+  // .description__block
+  &__block {
+    padding-block: functions.responsive-value(60, 30);
+    background-color: variables.$color-hover;
+    background-image: var(--description-background-image);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  // .description__container
+  &__container {
+  }
+
+  // .description__slider
+  &__slider {
+  }
+}
+
+.description-slider {
+  // .description-slider__wrapper
+  &__wrapper {
+  }
+
+  // .description-slider__slide
+  &__slide {
+  }
+
+  // .description-slider__title
+  &__title {
+    margin-block-end: 20px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  // .description-slider__text
+  &__text {
+    max-inline-size: 920px;
+    margin-inline: auto;
+    text-align: justify;
+  }
+
+  // .description-slider__pagination
+  &__pagination {
+    --swiper-pagination-color: #{variables.$color-white};
+    --swiper-pagination-bullet-size: 11px;
+    --swiper-pagination-bullet-border-radius: 50%;
+    --swiper-pagination-bullet-inactive-color: #{variables.$color-bullet};
+    --swiper-pagination-bullet-inactive-opacity: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block-start: 30px;
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: opacity, visibility;
+      transition-duration: 0.3s;
+    }
+
+    @media (hover: hover) {
+      .description__block:not(:hover) & {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    .swiper-pagination-bullet {
+      flex: 0 0 auto;
+      font-size: 0;
+
+      @include mixins.prefers-reduced-motion {
+        transition-property: background-color;
+        transition-duration: 0.3s;
+      }
+
+      &:not(&-active) {
+        @include mixins.hover {
+          background-color: variables.$color-white;
+        }
+      }
+
+      &-active {
+        cursor: default;
+      }
+    }
+  }
+}
