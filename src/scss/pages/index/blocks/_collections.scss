@@ -1,0 +1,42 @@
+@use "../../../functions/functions";
+@use "../../../mixins/mixins";
+@use "../../../variables/variables";
+
+.collections {
+  padding-block: 20px;
+
+  // .collections__container
+  &__container {
+  }
+
+  // .collections__inner
+  &__inner {
+    display: grid;
+    gap: functions.responsive-value(100, 20);
+
+    @media (min-width: #{550 + 0.1px}) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  // .collections__image
+  &__image {
+    aspect-ratio: 480 / 720;
+    font-size: 0;
+
+    @include mixins.hover {
+      img {
+        transform: scale(0.9);
+      }
+    }
+
+    img {
+      object-fit: contain;
+
+      @include mixins.prefers-reduced-motion {
+        transition-property: transform;
+        transition-duration: 0.3s;
+      }
+    }
+  }
+}
