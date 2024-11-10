@@ -1,0 +1,38 @@
+<section class="products" data-tabs>
+  <div class="products__container container">
+    <h2 class="products__title">Наши товары</h2>
+    <div class="products__tabs products-tabs">
+      <ul class="products-tabs__list">
+        <li class="products-tabs__item">
+          <button class="products-tabs__button active" data-tab="recommended">Рекомендуемые</button>
+        </li>
+        <li class="products-tabs__item">
+          <button class="products-tabs__button" data-tab="new">Новинки</button>
+        </li>
+        <li class="products-tabs__item">
+          <button class="products-tabs__button" data-tab="top">Топ продаж</button>
+        </li>
+      </ul>
+    </div>
+    <div class="products__panels">
+      <div class="products__panel" data-panel="recommended">
+        <ul class="products__list products-list">
+          @@loop("../../../ui/product-item.html", "json/product-item-index-1.json")
+        </ul>
+        <a class="products__link button" href="catalog.html">Все товары</a>
+      </div>
+      <div class="products__panel" data-panel="new" hidden>
+        <ul class="products__list products-list">
+          @@loop("../../../ui/product-item.html", "json/product-item-index-2.json")
+        </ul>
+        <a class="products__link button" href="#">Все новинки</a>
+      </div>
+      <div class="products__panel" data-panel="top" hidden>
+        <ul class="products__list products-list">
+          @@loop("../../../ui/product-item.html", "json/product-item-index-3.json")
+        </ul>
+        <a class="products__link button" href="#">Все бестселлеры</a>
+      </div>
+    </div>
+  </div>
+</section>

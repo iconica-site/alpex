@@ -24,6 +24,8 @@
   // .hero-slider__slide
   &__slide {
     aspect-ratio: 1396 / 582.33;
+
+    @include mixins.border;
   }
 
   // .hero-slider__arrows
