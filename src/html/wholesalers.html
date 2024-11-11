@@ -7,7 +7,7 @@
 
 <body>
   @@include("icons/icons.svg")
-  <div class="wrapper" data-wrapper>
+  <div class="wrapper wrapper--grid" data-wrapper>
     @@include("base/header.html", {
     "index": false,
     "contacts": false,
@@ -17,6 +17,7 @@
     "login": false,
     "registration": false
     })
+    @@include("pages/wholesalers/blocks/breadcrumbs.html")
     <main class="main">
       @@include("pages/wholesalers/wholesalers.html")
     </main>

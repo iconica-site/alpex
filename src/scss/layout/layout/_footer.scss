@@ -5,6 +5,12 @@
 .footer {
   padding-block: functions.responsive-value(35, 15) calc(functions.responsive-value(60, 30) + 40px);
 
+  .wrapper--grid & {
+    @media (min-width: #{992 + 0.1px}) {
+      grid-column: span 2;
+    }
+  }
+
   @media (min-width: #{1225 + 0.1px}) {
     padding-block: functions.responsive-value(35, 15) functions.responsive-value(60, 30);
   }

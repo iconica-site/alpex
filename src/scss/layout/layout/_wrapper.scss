@@ -4,4 +4,14 @@
   flex-direction: column;
   min-block-size: 100%;
   overflow: hidden;
+
+  // .wrapper--grid
+  &--grid {
+    @media (min-width: #{992 + 0.1px}) {
+      display: grid;
+      grid-template-rows: repeat(2, auto) 1fr auto;
+      grid-template-columns: 285px 1fr;
+      column-gap: 30px;
+    }
+  }
 }
