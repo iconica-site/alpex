@@ -17,7 +17,10 @@
     "login": true,
     "registration": false
     })
-    @@include("pages/login/blocks/breadcrumbs.html")
+    @@include("ui/breadcrumbs.html", {
+    "page": "Вход в учетную запись",
+    "prev": false
+    })
     @@include("ui/aside.html", {
     "catalog": false
     })

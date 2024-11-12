@@ -17,7 +17,10 @@
     "login": false,
     "registration": false
     })
-    @@include("pages/order/blocks/breadcrumbs.html")
+    @@include("ui/breadcrumbs.html", {
+    "page": "Оформление заказа",
+    "prev": false
+    })
     <main class="main">
       @@include("pages/order/order.html")
     </main>

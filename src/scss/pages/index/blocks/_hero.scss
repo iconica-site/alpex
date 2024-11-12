@@ -4,10 +4,7 @@
 
 .hero {
   padding-block: 10px 20px;
-
-  // .hero__container
-  &__container {
-  }
+  padding-inline: functions.responsive-value(50, 15, $behavior: "fixed-both");
 
   // .hero__slider
   &__slider {

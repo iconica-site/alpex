@@ -17,7 +17,13 @@
     "login": false,
     "registration": false
     })
-    @@include("pages/product/blocks/breadcrumbs.html")
+    @@include("ui/breadcrumbs.html", {
+    "page": "Брюки трикотажные",
+    "prev": {
+    "link": "catalog.html",
+    "page": "Каталог товаров"
+    }
+    })
     <main class="main">
       @@include("pages/product/product.html")
     </main>

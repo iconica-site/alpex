@@ -9,8 +9,13 @@
             </svg>
           </a>
         </li>
+        @@if(prev){
         <li class="breadcrumbs-nav__item">
-          <a class="breadcrumbs-nav__link" href="" aria-current="page">Политика конфиденциальности</a>
+          <a class="breadcrumbs-nav__link" href="@@prev.link">@@prev.page</a>
+        </li>
+        }
+        <li class="breadcrumbs-nav__item">
+          <a class="breadcrumbs-nav__link" href="" aria-current="page">@@page</a>
         </li>
       </ol>
     </nav>
