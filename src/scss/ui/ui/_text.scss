@@ -50,8 +50,23 @@
     }
 
     ul {
-      padding-inline-start: 2rem;
-      list-style-type: disc;
+      &:not([data-no-list]) {
+        padding-inline-start: 2rem;
+        list-style-type: disc;
+      }
+    }
+
+    a {
+      color: variables.$color-link;
+
+      @include mixins.prefers-reduced-motion {
+        transition-property: color;
+        transition-duration: 0.3s;
+      }
+
+      @include mixins.hover {
+        color: variables.$color-hover;
+      }
     }
   }
 }
