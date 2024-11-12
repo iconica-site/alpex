@@ -1,6 +1,6 @@
-@use "../../../functions/functions";
-@use "../../../mixins/mixins";
-@use "../../../variables/variables";
+@use "../../functions/functions";
+@use "../../mixins/mixins";
+@use "../../variables/variables";
 
 .login {
   .wrapper:not(.wrapper--grid) & {
@@ -45,12 +45,20 @@
   // .login-form__text
   &__text {
     margin-block-end: 15px;
-    text-align: center;
-    color: variables.$color-text-2;
+
+    &:not(&--start) {
+      text-align: center;
+    }
+
+    // .login-form__text--start
+    &--start {
+    }
   }
 
   // .login-form__link
   &__link {
+    color: variables.$color-text-2;
+
     @include mixins.prefers-reduced-motion {
       transition-property: color;
       transition-duration: 0.3s;
@@ -111,7 +119,7 @@
   column-gap: 20px;
 
   @media (min-width: #{768 + 0.1px}) {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto minmax(auto, 550px);
     inline-size: fit-content;
   }
 
@@ -221,5 +229,160 @@
     @media (max-width: 330px) {
       border-end-start-radius: 5px;
     }
+  }
+
+  // .login-inputs__caption
+  &__caption {
+    font-size: 13px;
+
+    @media (min-width: #{768 + 0.1px}) {
+      grid-column-start: 2;
+    }
+  }
+
+  // .login-inputs__radios
+  &__radios {
+  }
+
+  // .login-inputs__checkbox
+  &__checkbox {
+    @media (min-width: #{768 + 0.1px}) {
+      grid-column-start: 2;
+    }
+  }
+}
+
+.login-radios {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 7px;
+  column-gap: 14px;
+
+  &:has(.login-radio__input:focus-visible) {
+    outline: 2px solid;
+    outline-offset: 2px;
+  }
+
+  // .login-radios__radio
+  &__radio {
+  }
+}
+
+.login-radio {
+  // .login-radio__label
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 500;
+    color: variables.$color-text-2;
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: color;
+      transition-duration: 0.3s;
+    }
+
+    @include mixins.hover {
+      color: variables.$color-hover;
+    }
+  }
+
+  // .login-radio__icon
+  &__icon {
+    position: relative;
+    flex: 0 0 auto;
+    inline-size: 18px;
+    aspect-ratio: 1 / 1;
+    font-size: 0;
+    border: 2px solid;
+    border-radius: 50%;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
+      inline-size: 75%;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+
+      .login-radio:has(.login-radio__input:checked) & {
+        background-color: currentColor;
+      }
+
+      @include mixins.prefers-reduced-motion {
+        transition-property: background-color;
+        transition-duration: 0.3s;
+      }
+    }
+  }
+
+  // .login-radio__text
+  &__text {
+  }
+
+  // .login-radio__input
+  &__input {
+  }
+}
+
+.login-checkbox {
+  color: variables.$color-text-2;
+
+  &:has(.login-checkbox__input:focus-visible) {
+    outline: 2px solid;
+    outline-offset: 2px;
+  }
+
+  // .login-checkbox__label
+  &__label {
+    a {
+      text-decoration: underline;
+
+      @include mixins.prefers-reduced-motion {
+        transition-property: color, text-decoration-color;
+        transition-duration: 0.3s;
+      }
+
+      @include mixins.hover {
+        color: variables.$color-hover;
+        text-decoration-color: rgba($color: variables.$color-text-2, $alpha: 0);
+      }
+    }
+  }
+
+  // .login-checkbox__icon
+  &__icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    inline-size: 16px;
+    aspect-ratio: 1 / 1;
+    margin-inline-end: 5px;
+    font-size: 0;
+    vertical-align: text-bottom;
+    border: 2px solid;
+
+    svg {
+      @include mixins.prefers-reduced-motion {
+        transition-property: opacity, visibility;
+        transition-duration: 0.3s;
+      }
+
+      .login-checkbox:has(.login-checkbox__input:not(:checked)) & {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  }
+
+  // .login-checkbox__text
+  &__text {
+  }
+
+  // .login-checkbox__input
+  &__input {
   }
 }
