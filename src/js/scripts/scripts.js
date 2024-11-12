@@ -8,3 +8,4 @@ import "./scripts/header-blocks-observer.js";
 import "./scripts/dialogs.js";
 import "./scripts/current-year.js";
 import "./scripts/tabs.js";
+import "./scripts/password.js";

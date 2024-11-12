@@ -1,0 +1,31 @@
+<section class="login" aria-labelledby="title-login">
+  <div class="login__container container">
+    <h2 class="visually-hidden" id="title-login">#</h2>
+    <form class="login__form login-form" id="login-form" action="#">
+      <div class="login-form__inputs login-inputs">
+        <div class="login-inputs__item">
+          <label class="login-inputs__label" for="login-inputs-email">Email</label>
+          <div class="login-inputs__input">
+            <input id="login-inputs-email" name="login-inputs-email" type="email" inputmode="email" required>
+          </div>
+        </div>
+        <div class="login-inputs__item">
+          <label class="login-inputs__label" for="login-inputs-password">Пароль</label>
+          <div class="login-inputs__input" data-password>
+            <input id="login-inputs-password" name="login-inputs-password" type="password" required data-input>
+            <button class="login-inputs__button" type="button" data-show-text="Показать" data-hide-text="Скрыть" data-button>Показать</button>
+          </div>
+        </div>
+      </div>
+      <p class="login-form__text">
+        <a class="login-form__link" href="#">Забыли пароль? Восстановить</a>
+      </p>
+      <button class="login-form__button" type="submit">Войти</button>
+      <div class="login-form__bottom">
+        <p class="login-form__text">
+          <a class="login-form__link" href="registration.html">Нет учётной записи? Создать</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</section>
