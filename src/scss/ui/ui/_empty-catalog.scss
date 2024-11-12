@@ -1,0 +1,105 @@
+@use "../../functions/functions";
+@use "../../mixins/mixins";
+@use "../../variables/variables";
+
+.empty {
+  .wrapper:not(.wrapper--grid) & {
+    padding-block: 20px;
+  }
+
+  .wrapper--grid & {
+    @media (max-width: 992px) {
+      padding-block: 20px;
+    }
+  }
+
+  // .empty__container
+  &__container {
+    .wrapper--grid & {
+      @media (min-width: #{992 + 0.1px}) {
+        padding-inline: 0;
+      }
+    }
+  }
+
+  // .empty__inner
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 30px;
+    border: 1px solid variables.$color-border;
+    border-radius: 5px;
+  }
+
+  // .empty__title
+  &__title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: calc(20 / 18);
+  }
+
+  // .empty__text
+  &__text {
+  }
+
+  // .empty__form
+  &__form {
+  }
+}
+
+.empty-form {
+  // .empty-form__inner
+  &__inner {
+    position: relative;
+  }
+
+  // .empty-form__input
+  &__input {
+    block-size: 46px;
+    padding-inline: 9px 55px;
+    color: variables.$color-input;
+    border: 1px solid variables.$color-border-2;
+    border-radius: 5px;
+
+    &:focus {
+      border-color: variables.$color-hover;
+    }
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: border-color;
+      transition-duration: 0.3s;
+    }
+
+    &::placeholder {
+      color: rgba($color: variables.$color-input, $alpha: 0.54);
+    }
+  }
+
+  // .empty-form__button
+  &__button {
+    --outline-color: #{variables.$color-hover};
+
+    position: absolute;
+    inset-block: 0;
+    inset-inline-end: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1 / 1;
+    font-size: 0;
+    color: variables.$color-white;
+    background-color: variables.$color-hover;
+    border-radius: 5px;
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: background-color;
+      transition-duration: 0.3s;
+    }
+
+    @include mixins.hover {
+      background-color: variables.$color-text-2;
+    }
+  }
+}
