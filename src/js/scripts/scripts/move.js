@@ -47,3 +47,16 @@ if (headerCartMain && headerCartContainer) {
     targetSelector: ".header-cart",
   });
 }
+
+/** @type {HTMLElement} */
+const asideSpoilersMain = document.querySelector(".aside-spoilers");
+/** @type {HTMLElement} */
+const asideSpoilersContainer = document.querySelector(".main__spoilers");
+
+if (asideSpoilersMain && asideSpoilersContainer) {
+  const move = new Move({
+    destinationSelector: ".main__spoilers",
+    targetSelector: ".aside-spoilers",
+    breakpoint: 992,
+  });
+}

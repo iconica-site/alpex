@@ -1,0 +1,15 @@
+.aside {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  .wrapper--grid & {
+    @media (min-width: #{992 + 0.1px}) {
+      grid-area: aside;
+    }
+  }
+
+  @media (max-width: 992px) {
+    display: none;
+  }
+}

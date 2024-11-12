@@ -18,8 +18,12 @@
     "registration": false
     })
     @@include("pages/catalog/blocks/breadcrumbs.html")
+    @@include("ui/aside.html", {
+    "catalog": true
+    })
     <main class="main">
       @@include("pages/catalog/catalog.html")
+      <div class="main__spoilers"></div>
     </main>
     @@include("base/footer.html", {
     "privacy": false,

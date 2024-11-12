@@ -9,9 +9,15 @@
   &--grid {
     @media (min-width: #{992 + 0.1px}) {
       display: grid;
-      grid-template-rows: repeat(2, auto) 1fr auto;
-      grid-template-columns: 285px 1fr;
-      column-gap: 30px;
+      grid-template-rows: repeat(2, auto) 40px 1fr 40px auto;
+      grid-template-columns: max((100vw - 1170px) / 2, 15px) 285px 30px 1fr max((100vw - 1170px) / 2, 15px);
+      grid-template-areas:
+        "header header header header header"
+        "breadcrumbs breadcrumbs breadcrumbs breadcrumbs breadcrumbs"
+        "top top top top top"
+        "left aside gap main right"
+        "bottom bottom bottom bottom bottom"
+        "footer footer footer footer footer";
     }
   }
 }

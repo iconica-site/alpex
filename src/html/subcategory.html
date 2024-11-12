@@ -18,8 +18,12 @@
     "registration": false
     })
     @@include("pages/subcategory/blocks/breadcrumbs.html")
+    @@include("ui/aside.html", {
+    "catalog": false
+    })
     <main class="main">
       @@include("pages/subcategory/subcategory.html")
+      <div class="main__spoilers"></div>
     </main>
     @@include("base/footer.html", {
     "privacy": false,

@@ -1,0 +1,37 @@
+<ul class="aside-spoilers" data-spoilers data-breakpoint="992" data-accordion="false">
+  <li class="aside-spoilers__item aside-spoilers__item--top">
+    <h2 class="aside-spoilers__title">
+      <a class="aside-spoilers__label" @@if(catalog){href="" aria-current="page" } @@if(!catalog){href="catalog.html" }>Каталог товаров</a>
+      <button class="aside-spoilers__button" data-spoiler="button">
+        <span class="visually-hidden">Каталог товаров</span>
+        <span class="aside-spoilers__icon" aria-hidden="true">
+          <svg width="24" height="24">
+            <use xlink:href="#icon-down"></use>
+          </svg>
+        </span>
+      </button>
+    </h2>
+    <div class="aside-spoilers__region" data-spoiler="region">
+      <div class="aside-spoilers__inner">
+        @@include("aside-catalog.html")
+      </div>
+    </div>
+  </li>
+  <li class="aside-spoilers__item aside-spoilers__item--bottom">
+    <h2 class="aside-spoilers__title">
+      <button class="aside-spoilers__button" data-spoiler="button">
+        <span class="aside-spoilers__label">Новинки</span>
+        <span class="aside-spoilers__icon" aria-hidden="true">
+          <svg width="24" height="24">
+            <use xlink:href="#icon-down"></use>
+          </svg>
+        </span>
+      </button>
+    </h2>
+    <div class="aside-spoilers__region" data-spoiler="region">
+      <div class="aside-spoilers__inner">
+        @@include("aside-new.html")
+      </div>
+    </div>
+  </li>
+</ul>

@@ -1,0 +1,104 @@
+@use "../../functions/functions";
+@use "../../mixins/mixins";
+@use "../../variables/variables";
+
+.new {
+  color: variables.$color-text-2;
+
+  // .new__list
+  &__list {
+  }
+
+  // .new__item
+  &__item {
+    &:not(:last-child) {
+      margin-block-end: 14px;
+    }
+  }
+
+  // .new__link
+  &__link {
+    display: block;
+    inline-size: fit-content;
+    margin-block-start: 15px;
+    margin-inline-start: auto;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1;
+    text-transform: uppercase;
+    text-underline-offset: 2px;
+    text-decoration: underline;
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: color, text-decoration-color;
+      transition-duration: 0.3s;
+    }
+
+    @include mixins.hover {
+      color: variables.$color-hover;
+      text-decoration-color: rgba($color: variables.$color-text-2, $alpha: 0);
+    }
+  }
+}
+
+.new-card {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 10px;
+
+  // .new-card__image
+  &__image {
+    aspect-ratio: 80 / 97;
+    font-size: 0;
+
+    img {
+      object-fit: contain;
+    }
+  }
+
+  // .new-card__content
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-block: 6px;
+  }
+
+  // .new-card__title
+  &__title {
+    line-height: calc(16 / 14);
+
+    a {
+      @include mixins.prefers-reduced-motion {
+        transition-property: color;
+        transition-duration: 0.3s;
+      }
+
+      @include mixins.hover {
+        color: variables.$color-hover;
+      }
+    }
+  }
+
+  // .new-card__price
+  &__price {
+  }
+}
+
+.new-price {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  white-space: nowrap;
+
+  // .new-price__value
+  &__value {
+    &::after {
+      content: " ";
+    }
+  }
+
+  // .new-price__currency
+  &__currency {
+  }
+}

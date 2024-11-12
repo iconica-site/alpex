@@ -1,0 +1,134 @@
+@use "../../functions/functions";
+@use "../../mixins/mixins";
+@use "../../variables/variables";
+
+.catalog-spoilers {
+  color: variables.$color-text-2;
+
+  // .catalog-spoilers__item
+  &__item {
+    &:not(:last-child) {
+      margin-block-end: 6px;
+    }
+  }
+
+  // .catalog-spoilers__title
+  &__title {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    min-block-size: 32px;
+  }
+
+  // .catalog-spoilers__label
+  &__label {
+    @include mixins.prefers-reduced-motion {
+      transition-property: color;
+      transition-duration: 0.3s;
+    }
+
+    @include mixins.hover {
+      color: variables.$color-hover;
+    }
+  }
+
+  // .catalog-spoilers__button
+  &__button {
+    flex: 0 0 auto;
+    inline-size: 16px;
+    aspect-ratio: 1 / 1;
+    font-size: 0;
+    border: 2px solid;
+    border-radius: 3px;
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: color;
+      transition-duration: 0.3s;
+    }
+
+    @include mixins.hover {
+      color: variables.$color-hover;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+    }
+  }
+
+  // .catalog-spoilers__icon
+  &__icon {
+    position: relative;
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
+      inline-size: 75%;
+      block-size: 1.5px;
+      background-color: currentColor;
+    }
+
+    &::before {
+      transform: translate(-50%, -50%);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+
+      .catalog-spoilers__item.spoiler-active & {
+        inline-size: 0;
+      }
+
+      @include mixins.prefers-reduced-motion {
+        transition-property: inline-size;
+        transition-duration: 0.3s;
+      }
+    }
+  }
+
+  // .catalog-spoilers__region
+  &__region {
+  }
+
+  // .catalog-spoilers__inner
+  &__inner {
+    padding-block: 6px;
+    padding-inline-start: 15px;
+  }
+
+  // .catalog-spoilers__list
+  &__list {
+  }
+}
+
+.catalog-list {
+  // .catalog-list__item
+  &__item {
+    &:not(:last-child) {
+      margin-block-end: 10px;
+    }
+  }
+
+  // .catalog-list__link
+  &__link {
+    @include mixins.prefers-reduced-motion {
+      transition-property: color;
+      transition-duration: 0.3s;
+    }
+
+    @include mixins.hover {
+      color: variables.$color-hover;
+    }
+  }
+}

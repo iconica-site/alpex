@@ -2,4 +2,17 @@
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
+
+  .wrapper--grid & {
+    @media (min-width: #{992 + 0.1px}) {
+      grid-area: main;
+    }
+  }
+
+  // .main__spoilers
+  &__spoilers {
+    @media (min-width: #{992 + 0.1px}) {
+      display: none;
+    }
+  }
 }

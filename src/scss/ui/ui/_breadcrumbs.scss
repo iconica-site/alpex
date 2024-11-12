@@ -9,7 +9,7 @@
 
   .wrapper--grid & {
     @media (min-width: #{992 + 0.1px}) {
-      grid-column: span 2;
+      grid-area: breadcrumbs;
     }
   }
 

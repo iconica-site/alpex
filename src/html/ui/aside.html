@@ -1,0 +1,4 @@
+<aside class="aside">
+  @@if(catalog){@@include("aside-spoilers.html", {"catalog": true})}
+  @@if(!catalog){@@include("aside-spoilers.html", {"catalog": false})}
+</aside>
