@@ -1,0 +1,49 @@
+@use "../../functions/functions";
+@use "../../mixins/mixins";
+@use "../../variables/variables";
+
+.aside-about {
+  // .aside-about__item
+  &__item {
+    display: flex;
+    align-items: start;
+    gap: 6px;
+    padding-block: 16px;
+
+    &:first-child {
+      padding-block-start: 0;
+    }
+
+    &:last-child {
+      padding-block-end: 0;
+    }
+
+    &:not(:last-child) {
+      border-block-end: 1px solid variables.$color-border;
+    }
+  }
+
+  // .aside-about__icon
+  &__icon {
+    position: relative;
+    flex: 0 0 auto;
+    font-size: 0;
+    transform: translateY(5px);
+  }
+
+  // .aside-about__text
+  &__text {
+    a {
+      color: variables.$color-text-2;
+
+      @include mixins.prefers-reduced-motion {
+        transition-property: color;
+        transition-duration: 0.3s;
+      }
+
+      @include mixins.hover {
+        color: variables.$color-hover;
+      }
+    }
+  }
+}

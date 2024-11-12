@@ -1,4 +1,10 @@
 <aside class="aside">
-  @@if(catalog){@@include("aside-spoilers.html", {"catalog": true})}
-  @@if(!catalog){@@include("aside-spoilers.html", {"catalog": false})}
+  @@if(about){
+  @@if(catalog){@@include("aside-spoilers.html",{"catalog":true,"about":true})}
+  @@if(!catalog){@@include("aside-spoilers.html",{"catalog":false,"about":true})}
+  }
+  @@if(!about){
+  @@if(catalog){@@include("aside-spoilers.html",{"catalog":true,"about":false})}
+  @@if(!catalog){@@include("aside-spoilers.html",{"catalog":false,"about":false})}
+  }
 </aside>

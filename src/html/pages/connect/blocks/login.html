@@ -1,0 +1,37 @@
+<section class="login" aria-labelledby="title-login">
+  <div class="login__container container">
+    <h2 class="visually-hidden" id="title-login">#</h2>
+    <form class="login__form login-form" id="login-form" action="#">
+      <div class="login-form__inputs login-inputs">
+        <div class="login-inputs__item">
+          <label class="login-inputs__label" for="connect-select">Тема</label>
+          <div class="login-inputs__input">
+            <select class="login-inputs__select" id="connect-select" name="connect-select" required>
+              <option value="Отдел заказов" selected>Отдел заказов</option>
+              <option value="Служба поддержки">Служба поддержки</option>
+              <option value="Технический отдел">Технический отдел</option>
+            </select>
+            <span class="login-inputs__icon" aria-hidden="true">
+              <svg width="20" height="20">
+                <use xlink:href="#icon-down"></use>
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div class="login-inputs__item">
+          <label class="login-inputs__label" for="connect-inputs-email">Ваш email</label>
+          <div class="login-inputs__input">
+            <input id="connect-inputs-email" name="connect-inputs-email" type="email" inputmode="email" placeholder="your@email.com" required>
+          </div>
+        </div>
+        <div class="login-inputs__item">
+          <label class="login-inputs__label" for="connect-inputs-textarea">Сообщение</label>
+          <div class="login-inputs__input">
+            <textarea class="login-inputs__textarea" id="connect-inputs-textarea" name="connect-inputs-textarea" placeholder="Как мы можем помочь?" required></textarea>
+          </div>
+        </div>
+      </div>
+      <button class="login-form__button" type="submit">Отправить</button>
+    </form>
+  </div>
+</section>

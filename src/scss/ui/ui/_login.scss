@@ -150,15 +150,19 @@
 
   // .login-inputs__label
   &__label {
+    justify-self: start;
     font-weight: 500;
     color: variables.$color-text-2;
 
-    @media (min-width: #{768 + 0.1px}) {
-      text-align: end;
+    .login-inputs__item:has(.login-inputs__textarea) & {
+      position: relative;
+      align-self: start;
+      transform: translateY(5px);
     }
 
-    @media (max-width: 768px) {
-      justify-self: start;
+    @media (min-width: #{768 + 0.1px}) {
+      justify-self: end;
+      text-align: end;
     }
   }
 
@@ -184,6 +188,10 @@
       }
     }
 
+    &:has(.login-inputs__icon) {
+      position: relative;
+    }
+
     @media (min-width: #{768 + 0.1px}) {
       min-inline-size: 400px;
     }
@@ -202,6 +210,10 @@
       @include mixins.prefers-reduced-motion {
         transition-property: border-color;
         transition-duration: 0.3s;
+      }
+
+      &::placeholder {
+        color: rgba($color: variables.$color-text-2, $alpha: 0.54);
       }
     }
   }
@@ -261,6 +273,79 @@
   &__checkbox {
     @media (min-width: #{768 + 0.1px}) {
       grid-column-start: 2;
+    }
+  }
+
+  // .login-inputs__select
+  &__select {
+    appearance: none;
+    inline-size: 100%;
+    block-size: 38px;
+    padding-inline: 12px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: 38px;
+    letter-spacing: inherit;
+    color: variables.$color-text-2;
+    background: none;
+    border: 1px solid variables.$color-border;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+
+    &:focus {
+      border-color: variables.$color-hover;
+    }
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: border-color;
+      transition-duration: 0.3s;
+    }
+  }
+
+  // .login-inputs__icon
+  &__icon {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-end: 12px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0;
+    transform: translateY(-50%);
+    pointer-events: none;
+
+    .login-inputs__select:focus + & {
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: transform;
+      transition-duration: 0.3s;
+    }
+  }
+
+  // .login-inputs__textarea
+  &__textarea {
+    min-block-size: 90px;
+    max-block-size: 200px;
+    padding: 12px;
+    color: variables.$color-text-2;
+    border: 1px solid variables.$color-border;
+    border-radius: 5px;
+
+    &:focus {
+      border-color: variables.$color-hover;
+    }
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: border-color;
+      transition-duration: 0.3s;
+    }
+
+    &::placeholder {
+      color: rgba($color: variables.$color-text-2, $alpha: 0.54);
     }
   }
 }
