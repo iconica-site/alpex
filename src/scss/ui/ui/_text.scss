@@ -1,0 +1,57 @@
+@use "../../functions/functions";
+@use "../../mixins/mixins";
+@use "../../variables/variables";
+
+.text {
+  .wrapper:not(.wrapper--grid) & {
+    padding-block: 20px;
+  }
+
+  .wrapper--grid & {
+    @media (max-width: 992px) {
+      padding-block: 20px;
+    }
+  }
+
+  // .text__container
+  &__container {
+    .wrapper--grid & {
+      @media (min-width: #{992 + 0.1px}) {
+        padding-inline: 0;
+      }
+    }
+  }
+  // .text__inner
+  &__inner {
+    text-align: justify;
+
+    > *:not(:last-child) {
+      margin-block-end: 1rem;
+    }
+
+    div {
+      &:not(:last-child) {
+        margin-block-end: 3rem;
+      }
+
+      > *:not(:last-child) {
+        margin-block-end: 1rem;
+      }
+    }
+
+    h3 {
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    mark {
+      font-weight: 700;
+      color: variables.$color-mark;
+    }
+
+    ul {
+      padding-inline-start: 2rem;
+      list-style-type: disc;
+    }
+  }
+}
