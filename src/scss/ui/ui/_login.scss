@@ -25,12 +25,21 @@
   // .login__form
   &__form {
   }
+
+  // .login__link
+  &__link {
+    margin-block-start: 30px;
+  }
 }
 
 .login-form {
   padding: 30px;
   border: 1px solid variables.$color-border;
   border-radius: 5px;
+
+  // .login-form--wide
+  &--wide {
+  }
 
   > *:last-child {
     margin-block-end: 0;
@@ -119,8 +128,12 @@
   column-gap: 20px;
 
   @media (min-width: #{768 + 0.1px}) {
-    grid-template-columns: auto minmax(auto, 550px);
+    grid-template-columns: auto 1fr;
     inline-size: fit-content;
+
+    .login-form--wide & {
+      grid-template-columns: auto minmax(auto, 550px);
+    }
   }
 
   // .login-inputs__item
@@ -384,5 +397,32 @@
 
   // .login-checkbox__input
   &__input {
+  }
+}
+
+.login-prev {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  inline-size: fit-content;
+  color: variables.$color-text-2;
+
+  @include mixins.prefers-reduced-motion {
+    transition-property: color;
+    transition-duration: 0.3s;
+  }
+
+  @include mixins.hover {
+    color: variables.$color-hover;
+  }
+
+  // .login-prev__icon
+  &__icon {
+    flex: 0 0 auto;
+    font-size: 0;
+  }
+
+  // .login-prev__text
+  &__text {
   }
 }
