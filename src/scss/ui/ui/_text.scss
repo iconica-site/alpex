@@ -21,6 +21,30 @@
       }
     }
   }
+
+  // .text__header
+  &__header {
+    margin-block-end: 30px;
+
+    > *:last-child {
+      margin-block-end: 0;
+    }
+  }
+
+  // .text__list
+  &__list {
+    margin-block-end: 30px;
+  }
+
+  // .text__title
+  &__title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: calc(20 / 18);
+    text-align: center;
+    text-decoration: underline;
+  }
+
   // .text__inner
   &__inner {
     text-align: justify;
@@ -54,6 +78,7 @@
     h3 {
       font-weight: 700;
       font-size: 20px;
+      text-align: start;
     }
 
     mark {
@@ -124,9 +149,25 @@
     }
 
     h4 {
+      margin-block-end: 0.5rem;
       font-weight: 700;
       font-size: 18px;
-      margin-block-end: 0.5rem;
+      text-align: start;
+    }
+  }
+
+  // .text__link
+  &__link {
+  }
+}
+
+.text-list {
+  text-align: end;
+
+  // .text-list__item
+  &__item {
+    &:not(:last-child) {
+      margin-block-end: 10px;
     }
   }
 }
