@@ -1,0 +1,107 @@
+<section class="cart" aria-labelledby="title-cart">
+  <div class="cart__container container">
+    <h2 class="visually-hidden" id="title-cart">#</h2>
+    <div class="cart__inner">
+      <div class="cart__main cart-main">
+        <div class="cart-main__list">
+          <ul class="cart-list">
+            <li class="cart-list__item">
+              <article class="cart-item" data-price="11000">
+                <a class="cart-item__image ibg" href="#">
+                  <img src="@img/images/pages/cart/cart/1.jpg" alt="#" loading="lazy">
+                </a>
+                <div class="cart-item__content">
+                  <div class="cart-item__inner">
+                    <h3 class="cart-item__title">
+                      <a href="#">Куртка мужская зимняя</a>
+                    </h3>
+                    <div class="cart-item__price cart-price">
+                      <span class="cart-price__value">11 000</span>
+                      <span class="cart-price__currency">₽</span>
+                    </div>
+                    <ul class="cart-item__info cart-info">
+                      <li class="cart-info__item">
+                        <h4 class="cart-info__label">Размер:</h4>
+                        <div class="cart-info__text">170-88-76(XS)</div>
+                      </li>
+                      <li class="cart-info__item">
+                        <h4 class="cart-info__label">Цвет:</h4>
+                        <div class="cart-info__text">Табачный</div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="cart-item__actions cart-actions">
+                    <form class="cart-actions__form cart-form" id="cart-form" action="#">
+                      <div class="cart-form__inner" data-counter>
+                        <input class="cart-form__input" id="cart-form-number" name="cart-form-number" type="number" inputmode="numeric" value="1" min="1" max="5" step="1" required data-input>
+                        <div class="cart-form__buttons">
+                          <button class="cart-form__button" type="button" aria-label="#" data-up>
+                            <svg width="15" height="15" aria-hidden="true">
+                              <use xlink:href="#icon-up-arrow"></use>
+                            </svg>
+                          </button>
+                          <button class="cart-form__button" type="button" aria-label="#" data-down>
+                            <svg width="15" height="15" aria-hidden="true">
+                              <use xlink:href="#icon-down"></use>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                    <div class="cart-actions__price cart-price">
+                      <span class="cart-price__value" data-item-price-sum>11 000</span>
+                      <span class="cart-price__currency">₽</span>
+                    </div>
+                    <button class="cart-actions__remove">
+                      <svg width="24" height="24" aria-hidden="true">
+                        <use xlink:href="#icon-bin"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </article>
+            </li>
+          </ul>
+          <p class="cart-main__text">В вашей корзине больше нет товаров</p>
+        </div>
+        <a class="cart-main__link cart-link" href="./">
+          <span class="cart-link__icon" aria-hidden="true">
+            <svg width="10" height="10">
+              <use xlink:href="#icon-prev-arrow"></use>
+            </svg>
+          </span>
+          <span class="cart-link__text">Продолжить покупки</span>
+        </a>
+      </div>
+      <div class="cart__summary cart-summary">
+        <div class="cart-summary__block">
+          <div class="cart-summary__items">
+            <div class="cart-summary__item">
+              <div class="cart-summary__label"><span class="cart-summary__count" data-total-count>1</span> шт.</div>
+              <div class="cart-summary__value cart-price">
+                <span class="cart-price__value" data-total-sum>11 000</span>
+                <span class="cart-price__currency">₽</span>
+              </div>
+            </div>
+            <div class="cart-summary__item cart-summary__item--order">
+              <div class="cart-summary__label">Доставка</div>
+              <div class="cart-summary__value" data-order-price="0" data-zero-text="Бесплатно!">Бесплатно!</div>
+            </div>
+          </div>
+        </div>
+        <div class="cart-summary__block">
+          <div class="cart-summary__items">
+            <div class="cart-summary__item">
+              <div class="cart-summary__label">Итого, к оплате:</div>
+              <div class="cart-summary__value cart-price">
+                <span class="cart-price__value" data-total-pay>11 000</span>
+                <span class="cart-price__currency">₽</span>
+              </div>
+            </div>
+          </div>
+          <a class="cart-summary__link" href="order.html">Оформить заказ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

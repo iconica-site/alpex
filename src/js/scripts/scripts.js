@@ -9,3 +9,6 @@ import "./scripts/dialogs.js";
 import "./scripts/current-year.js";
 import "./scripts/tabs.js";
 import "./scripts/password.js";
+import "./scripts/counter.js";
+import "./scripts/cart-calc.js";
+import "./scripts/remove-cart-item.js";
