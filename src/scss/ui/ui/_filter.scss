@@ -10,7 +10,10 @@
     flex: 1 1 auto;
     inline-size: 100%;
     max-inline-size: 400px;
+    min-block-size: 100%;
     background: variables.$color-white;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   // .filter__header
@@ -108,7 +111,7 @@
 
   // .filter-form__spoilers
   &__spoilers {
-    flex: 1 1 auto;
+    margin-block-end: auto;
   }
 
   // .filter-form__buttons
@@ -130,10 +133,10 @@
       position: sticky;
       inset-block-end: 0;
       z-index: 1;
+      margin-block-start: 15px;
       margin-block-end: -15px;
       margin-inline: -20px;
       padding: 15px;
-
       background-color: variables.$color-bg;
     }
   }
