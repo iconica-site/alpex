@@ -213,6 +213,8 @@
 
   // .catalog-actions__button
   &__button {
+    --outline-color: #{variables.$color-text-2};
+
     display: flex;
     justify-content: center;
     align-items: center;
