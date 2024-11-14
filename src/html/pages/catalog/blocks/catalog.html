@@ -96,5 +96,44 @@
       </script>
       @@loop("../../../ui/product-catalog-item.html", "json/product-catalog-item.json")
     </ul>
+    <div class="catalog__bottom">
+      <p class="catalog__text">Показано: 25-36 из 188</p>
+      <div class="catalog__pagination">
+        <ul class="pagination">
+          <li class="pagination__item">
+            <a class="pagination__link" href="#" aria-label="#">
+              <svg width="20" height="20" aria-hidden="true">
+                <use xlink:href="#icon-left-arrow"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="pagination__item">
+            <a class="pagination__link" href="#">1</a>
+          </li>
+          <li class="pagination__item">
+            <a class="pagination__link" href="#">2</a>
+          </li>
+          <li class="pagination__item">
+            <a class="pagination__link pagination__link--active" href="" aria-current="page">3</a>
+          </li>
+          <li class="pagination__item">
+            <a class="pagination__link" href="#">4</a>
+          </li>
+          <li class="pagination__item">
+            <span class="pagination__link">…</span>
+          </li>
+          <li class="pagination__item">
+            <a class="pagination__link" href="#">16</a>
+          </li>
+          <li class="pagination__item">
+            <a class="pagination__link" href="#" aria-label="#">
+              <svg width="20" height="20" aria-hidden="true">
+                <use xlink:href="#icon-right-arrow"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
