@@ -281,11 +281,12 @@
     appearance: none;
     inline-size: 100%;
     block-size: 38px;
-    padding-inline: 12px;
+    padding-inline: 12px 44px;
     font-family: inherit;
     font-size: inherit;
     line-height: 38px;
     letter-spacing: inherit;
+    text-overflow: ellipsis;
     color: variables.$color-text-2;
     background: none;
     border: 1px solid variables.$color-border;

@@ -38,5 +38,45 @@
         </li>
       </ul>
     </div>
+    <div class="catalog__actions catalog-actions">
+      <button class="catalog-actions__filter" data-dialog-id="dialog-filter">Фильтр</button>
+      <div class="catalog-actions__buttons">
+        <button class="catalog-actions__button catalog-actions__button--grid catalog-actions__button--active" aria-label="#">
+          <svg width="21" height="21" aria-hidden="true">
+            <use xlink:href="#icon-grid"></use>
+          </svg>
+        </button>
+        <button class="catalog-actions__button catalog-actions__button--list" aria-label="#">
+          <svg width="21" height="21" aria-hidden="true">
+            <use xlink:href="#icon-list"></use>
+          </svg>
+        </button>
+      </div>
+      <div class="catalog-actions__count catalog-count">
+        <span class="catalog-count__text">Товаров:</span>
+        <span class="catalog-count__value">188</span>
+      </div>
+      <form class="catalog-actions__form catalog-sort" id="catalog-sort" action="#">
+        <div class="catalog-sort__item">
+          <label class="catalog-sort__label" for="catalog-sort-select">Сортировать:</label>
+          <div class="catalog-sort__select">
+            <select class="catalog-sort__input" id="catalog-sort-select" name="catalog-sort-select" required>
+              <option value="По умолчанию">По умолчанию</option>
+              <option value="Цена (по возрастанию)">Цена (по возрастанию)</option>
+              <option value="Цена (по убыванию)">Цена (по убыванию)</option>
+              <option value="Топ продаж выше">Топ продаж выше</option>
+              <option value="Новинки выше">Новинки выше</option>
+              <option value="Название (от А до Я)">Название (от А до Я)</option>
+              <option value="Название (от Я до А)">Название (от Я до А)</option>
+            </select>
+            <span class="catalog-sort__icon" aria-hidden="true">
+              <svg width="20" height="20">
+                <use xlink:href="#icon-down"></use>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </section>

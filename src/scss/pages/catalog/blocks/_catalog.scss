@@ -30,6 +30,11 @@
   &__subcategories {
     margin-block-end: 30px;
   }
+
+  // .catalog__actions
+  &__actions {
+    margin-block-end: 30px;
+  }
 }
 
 .subcategories {
@@ -102,5 +107,232 @@
 
   // .subcategories__label
   &__label {
+  }
+}
+
+.catalog-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  @media (max-width: 992px) {
+    justify-content: space-between;
+  }
+
+  // .catalog-actions__filter
+  &__filter {
+    --outline-color: #{variables.$color-hover};
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-block-size: 38px;
+    padding-block: 5px;
+    padding-inline: 12px;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1;
+    text-transform: uppercase;
+    text-align: center;
+    color: variables.$color-white;
+    background-color: variables.$color-hover;
+    border-radius: 5px;
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: background-color;
+      transition-duration: 0.3s;
+    }
+
+    @include mixins.hover {
+      background-color: variables.$color-text-2;
+    }
+
+    @media (min-width: #{992 + 0.1px}) {
+      display: none;
+    }
+  }
+
+  // .catalog-actions__buttons
+  &__buttons {
+    display: flex;
+    gap: 10px;
+    flex: 0 0 auto;
+    font-size: 0;
+
+    @media (max-width: 992px) {
+      display: none;
+    }
+  }
+
+  // .catalog-actions__button
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 auto;
+    inline-size: 38px;
+    aspect-ratio: 1 / 1;
+    color: variables.$color-border;
+    border: 2px solid;
+    border-radius: 5px;
+
+    &:not(&--active) {
+      @include mixins.hover {
+        color: variables.$color-hover;
+      }
+    }
+
+    // .catalog-actions__button--active
+    &--active {
+      color: variables.$color-text-2;
+    }
+
+    // .catalog-actions__button--grid
+    &--grid {
+    }
+
+    // .catalog-actions__button--list
+    &--list {
+    }
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: color;
+      transition-duration: 0.3s;
+    }
+  }
+
+  // .catalog-actions__count
+  &__count {
+  }
+
+  // .catalog-actions__form
+  &__form {
+  }
+}
+
+.catalog-count {
+  color: variables.$color-text-2;
+
+  @media (max-width: 992px) {
+    display: none;
+  }
+
+  // .catalog-count__text
+  &__text {
+    &::after {
+      content: " ";
+    }
+  }
+
+  // .catalog-count__value
+  &__value {
+  }
+}
+
+.catalog-sort {
+  @media (min-width: #{992 + 0.1px}) {
+    margin-inline-start: auto;
+  }
+
+  @media (max-width: 992px) {
+    display: flex;
+    justify-content: end;
+    flex: 1 1 auto;
+  }
+
+  // .catalog-sort__item
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    @media (max-width: 992px) {
+      display: flex;
+      justify-content: end;
+      flex: 1 1 auto;
+    }
+  }
+
+  // .catalog-sort__label
+  &__label {
+    @media (max-width: 992px) {
+      position: absolute;
+      inline-size: 1px;
+      block-size: 1px;
+      margin: -1px;
+      padding: 0;
+      clip-path: inset(100%);
+      clip: rect(0 0 0 0);
+      overflow: hidden;
+      white-space: nowrap;
+      border: none;
+      outline: none;
+      outline-offset: 0;
+    }
+  }
+
+  // .catalog-sort__select
+  &__select {
+    position: relative;
+
+    @media (max-width: 992px) {
+      inline-size: 100%;
+      max-inline-size: 245px;
+    }
+  }
+
+  // .catalog-sort__input
+  &__input {
+    appearance: none;
+    inline-size: 100%;
+    block-size: 38px;
+    padding-inline: 12px 44px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: 38px;
+    letter-spacing: inherit;
+    text-overflow: ellipsis;
+    color: variables.$color-text-2;
+    background: none;
+    border: 1px solid variables.$color-border;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+
+    &:focus {
+      border-color: variables.$color-hover;
+    }
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: border-color;
+      transition-duration: 0.3s;
+    }
+
+    @media (min-width: #{992 + 0.1px}) {
+      min-inline-size: 245px;
+    }
+  }
+
+  // .catalog-sort__icon
+  &__icon {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-end: 12px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0;
+    transform: translateY(-50%);
+    pointer-events: none;
+
+    .catalog-sort__input:focus + & {
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: transform;
+      transition-duration: 0.3s;
+    }
   }
 }
