@@ -1,0 +1,54 @@
+<div class="filter" data-dialog="inner">
+  <div class="filter__header">
+    <h2 class="filter__title">Фильтр</h2>
+    <button class="filter__close" data-dialog="close" aria-label="#"></button>
+  </div>
+  <form class="filter__form filter-form" id="filter-form" action="#">
+    <div class="filter-form__spoilers filter-spoilers" data-spoilers data-breakpoint="992" data-accordion="false">
+      <fieldset class="filter-spoilers__item">
+        @@include("filter-legend.html",{"label": "Сезон"})
+        <div class="filter-spoilers__region" data-spoiler="region">
+          <ul class="filter-spoilers__inner filter-checkboxes">
+            @@loop("filter-checkbox.html", "json/filter-season-checkboxes.json")
+          </ul>
+        </div>
+      </fieldset>
+      <fieldset class="filter-spoilers__item">
+        @@include("filter-legend.html",{"label": "Цена"})
+        <div class="filter-spoilers__region" data-spoiler="region">
+          <div class="filter-spoilers__inner filter-prices" data-nouislider data-start="0" data-end="11500" data-min="0" data-max="11500" data-step="100" data-margin="1000" data-currency="₽">
+            <div class="filter-prices__inputs prices-inputs">
+              <div class="prices-inputs__item">
+                <input class="prices-inputs__input" id="prices-inputs-from" name="prices-inputs-from" type="number" inputmode="numeric" aria-label="#" data-from>
+              </div>
+              <div class="prices-inputs__item">
+                <input class="prices-inputs__input" id="prices-inputs-to" name="prices-inputs-to" type="number" inputmode="numeric" aria-label="#" data-to>
+              </div>
+            </div>
+            <div class="filter-prices__nouislider" data-placeholder></div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="filter-spoilers__item">
+        @@include("filter-legend.html",{"label": "Размер"})
+        <div class="filter-spoilers__region" data-spoiler="region">
+          <ul class="filter-spoilers__inner filter-checkboxes">
+            @@loop("filter-checkbox.html", "json/filter-size-checkboxes.json")
+          </ul>
+        </div>
+      </fieldset>
+      <fieldset class="filter-spoilers__item">
+        @@include("filter-legend.html",{"label": "Цвет"})
+        <div class="filter-spoilers__region" data-spoiler="region">
+          <ul class="filter-spoilers__inner filter-checkboxes">
+            @@loop("filter-color.html", "json/filter-color-checkboxes.json")
+          </ul>
+        </div>
+      </fieldset>
+    </div>
+    <div class="filter-form__buttons">
+      <button class="filter-form__button filter-form__button--reset" type="reset" disabled>Очистить</button>
+      <button class="filter-form__button filter-form__button--submit" type="submit">Применить</button>
+    </div>
+  </form>
+</div>

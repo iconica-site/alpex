@@ -1,4 +1,5 @@
 <aside class="aside">
+  @@if(filter){@@include("filter.html")}
   @@if(about){
   @@if(catalog){@@include("aside-spoilers.html",{"catalog":true,"about":true})}
   @@if(!catalog){@@include("aside-spoilers.html",{"catalog":false,"about":true})}

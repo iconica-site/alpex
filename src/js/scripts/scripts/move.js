@@ -60,3 +60,16 @@ if (asideSpoilersMain && asideSpoilersContainer) {
     breakpoint: 992,
   });
 }
+
+/** @type {HTMLElement} */
+const filterMain = document.querySelector(".filter");
+/** @type {HTMLElement} */
+const filterContainer = document.querySelector(".filter-dialog");
+
+if (filterMain && filterContainer) {
+  const move = new Move({
+    destinationSelector: ".filter-dialog",
+    targetSelector: ".filter",
+    breakpoint: 992,
+  });
+}

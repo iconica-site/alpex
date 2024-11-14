@@ -23,7 +23,8 @@
     })
     @@include("ui/aside.html", {
     "catalog": true,
-    "about": false
+    "about": false,
+    "filter": true
     })
     <main class="main">
       @@include("pages/catalog/catalog.html")
@@ -40,6 +41,7 @@
     "shops": false
     })
     @@include("ui/up.html")
+    @@include("dialogs/filter-dialog.html")
     @@include("dialogs/cart-dialog.html", {
     "index": false,
     "product": false,

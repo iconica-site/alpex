@@ -12,3 +12,4 @@ import "./scripts/password.js";
 import "./scripts/counter.js";
 import "./scripts/cart-calc.js";
 import "./scripts/remove-cart-item.js";
+import "./scripts/filter.js";
