@@ -35,6 +35,10 @@
   &__actions {
     margin-block-end: 30px;
   }
+
+  // .catalog__products
+  &__products {
+  }
 }
 
 .subcategories {
@@ -185,14 +189,6 @@
     // .catalog-actions__button--active
     &--active {
       color: variables.$color-text-2;
-    }
-
-    // .catalog-actions__button--grid
-    &--grid {
-    }
-
-    // .catalog-actions__button--list
-    &--list {
     }
 
     @include mixins.prefers-reduced-motion {

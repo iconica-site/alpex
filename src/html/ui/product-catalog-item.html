@@ -1,0 +1,76 @@
+<li class="products-list__item">
+  <article class="product-card">
+    <div class="product-card__header">
+      <a class="product-card__images" href="#">
+        <div class="product-card__image product-card__image--front ibg">
+          <img src="@img/images/ui/products/@@image-1.jpg" alt="#" loading="lazy">
+        </div>
+        <div class="product-card__image product-card__image--back ibg">
+          <img src="@img/images/ui/products/@@image-2.jpg" alt="#" loading="lazy">
+        </div>
+      </a>
+      <button class="product-card__view" aria-label="#">
+        <svg width="50%" height="50%" aria-hidden="true">
+          <use xlink:href="#icon-eye"></use>
+        </svg>
+      </button>
+      <a class="product-card__link" href="#">Выбрать параметры</a>
+    </div>
+    <div class="product-card__content">
+      <h3 class="product-card__title">
+        <a href="#">@@title</a>
+      </h3>
+      <div class="product-card__price">
+        <span class="product-card__value">@@price</span>
+        <span class="product-card__currency">₽</span>
+      </div>
+      @@if(colors1) {
+      <div class="product-card__colors product-colors">
+        <ul class="product-colors__list">
+          <li class="product-colors__item">
+            <a class="product-colors__link" href="#" style="--product-card-color-link-background: #fff;" aria-label="#"></a>
+          </li>
+          <li class="product-colors__item">
+            <a class="product-colors__link" href="#" style="--product-card-color-link-background: #000;" aria-label="#"></a>
+          </li>
+          <li class="product-colors__item">
+            <a class="product-colors__link" href="#" style="--product-card-color-link-background: #f00;" aria-label="#"></a>
+          </li>
+          <li class="product-colors__item">
+            <a class="product-colors__link" href="#" style="--product-card-color-link-background: #0f0;" aria-label="#"></a>
+          </li>
+        </ul>
+        <p class="product-colors__badge product-colors__badge--red">Товар есть в других вариантах</p>
+      </div>
+      }
+      @@if(colors2) {
+      <div class="product-card__colors product-colors">
+        <ul class="product-colors__list" data-count="2">
+          <li class="product-colors__item">
+            <a class="product-colors__link" href="#" style="--product-card-color-link-background: #00f;" aria-label="#"></a>
+          </li>
+          <li class="product-colors__item">
+            <a class="product-colors__link" href="#" style="--product-card-color-link-background: #ff0;" aria-label="#"></a>
+          </li>
+          <li class="product-colors__item">
+            <a class="product-colors__link" href="#" style="--product-card-color-link-background: #0ff;" aria-label="#"></a>
+          </li>
+          <li class="product-colors__item">
+            <a class="product-colors__link" href="#" style="--product-card-color-link-background: #f0f;" aria-label="#"></a>
+          </li>
+          <li class="product-colors__item">
+            <a class="product-colors__link" href="#" style="--product-card-color-link-background: #f45;" aria-label="#"></a>
+          </li>
+          <li class="product-colors__item">
+            <a class="product-colors__link" href="#" style="--product-card-color-link-background: #4f5;" aria-label="#"></a>
+          </li>
+          <li class="product-colors__item">
+            <a class="product-colors__link" href="#" style="--product-card-color-link-background: #45f;" aria-label="#"></a>
+          </li>
+        </ul>
+        <p class="product-colors__badge product-colors__badge--green">Есть в наличии</p>
+      </div>
+      }
+    </div>
+  </article>
+</li>

@@ -41,12 +41,12 @@
     <div class="catalog__actions catalog-actions">
       <button class="catalog-actions__filter" data-dialog-id="dialog-filter">Фильтр</button>
       <div class="catalog-actions__buttons">
-        <button class="catalog-actions__button catalog-actions__button--grid catalog-actions__button--active" aria-label="#">
+        <button class="catalog-actions__button catalog-actions__button--active" aria-label="#" data-grid="grid">
           <svg width="21" height="21" aria-hidden="true">
             <use xlink:href="#icon-grid"></use>
           </svg>
         </button>
-        <button class="catalog-actions__button catalog-actions__button--list" aria-label="#">
+        <button class="catalog-actions__button" aria-label="#" data-grid="list">
           <svg width="21" height="21" aria-hidden="true">
             <use xlink:href="#icon-list"></use>
           </svg>
@@ -78,5 +78,23 @@
         </div>
       </form>
     </div>
+    <ul class="catalog__products products-list">
+      <script>
+        const grid = localStorage.getItem("products-grid");
+        /** @type {HTMLUListElement} */
+        const products = document.querySelector(".products-list");
+        /** @type {NodeListOf<HTMLButtonElement>} */
+        const buttons = document.querySelectorAll("[data-grid]");
+
+        if (grid === "list") {
+          products?.classList.add("products-list--list");
+
+          buttons.forEach(button => {
+            button.classList.toggle("catalog-actions__button--active", button.dataset.grid === grid);
+          });
+        }
+      </script>
+      @@loop("../../../ui/product-catalog-item.html", "json/product-catalog-item.json")
+    </ul>
   </div>
 </section>

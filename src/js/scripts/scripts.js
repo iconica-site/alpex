@@ -13,3 +13,5 @@ import "./scripts/counter.js";
 import "./scripts/cart-calc.js";
 import "./scripts/remove-cart-item.js";
 import "./scripts/filter.js";
+import "./scripts/catalog-grid.js";
+import "./scripts/product-colors.js";
