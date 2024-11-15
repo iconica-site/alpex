@@ -349,7 +349,7 @@
 
     &.noUi-target {
       &.noUi-horizontal {
-        block-size: 5px;
+        block-size: 6px;
         background-color: variables.$color-white;
         box-shadow: none;
         border: 1px solid variables.$color-hover;
@@ -371,7 +371,7 @@
 
           .noUi-origin {
             .noUi-handle {
-              inset-block-start: -9px;
+              inset-block-start: -8px;
               inline-size: 20px;
               block-size: 20px;
               background-color: variables.$color-white;

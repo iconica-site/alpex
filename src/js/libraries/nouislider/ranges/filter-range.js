@@ -13,9 +13,9 @@ nouisliderBlocks.forEach(block => {
 
   if (from && to && placeholder) {
     const inputs = [from, to];
-    const { dataset } = placeholder;
+    const { dataset } = block;
 
-    let { start = 0, end = 11500, min = 0, max = 11500, step = 100, margin = 1000, currency = "₽" } = dataset;
+    let { start = 0, end = 11500, min = 0, max = 11500, step = 100, margin = 1000 } = dataset;
 
     start = +start;
     end = +end;
@@ -45,6 +45,7 @@ nouisliderBlocks.forEach(block => {
 
     placeholder.noUiSlider.on("update", (values, handle) => {
       inputs[handle].value = values[handle];
+      inputs[handle].dispatchEvent(new Event("changefromnouislider"));
     });
 
     from.addEventListener("change", () => {
