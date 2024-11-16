@@ -1,0 +1,45 @@
+@use "../../functions/functions";
+@use "../../mixins/mixins";
+@use "../../variables/variables";
+
+.product-dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  &:not(&--show) {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  @include mixins.prefers-reduced-motion {
+    transition-property: opacity, visibility;
+    transition-duration: 0.3s;
+  }
+
+  // .product-dialog__inner
+  &__inner {
+    inline-size: 100%;
+    max-inline-size: 992px;
+    margin: auto;
+    padding: 15px;
+    background-color: variables.$color-white;
+    border-radius: 5px;
+
+    @media (min-width: #{768 + 0.1px}) {
+      display: grid;
+      align-items: start;
+      gap: 30px;
+      grid-template-columns: 350px 1fr;
+    }
+
+    > *:last-child {
+      margin-block-end: 0;
+    }
+  }
+}

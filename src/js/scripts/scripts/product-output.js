@@ -1,56 +1,61 @@
-/** @type {NodeListOf<HTMLInputElement | HTMLSelectElement>} */
-const dynamicInputs = document.querySelectorAll('[data-dynamic-input]');
+/** @type {NodeListOf<HTMLElement>} */
+const dynamicBlocks = document.querySelectorAll("[data-dynamic]");
 
-/** @type {{color: HTMLInputElement[]; size: HTMLSelectElement[]}} */
-const dynamicInputsObject = [...dynamicInputs].reduce(
-  /**
-   * @param {{"color": HTMLInputElement[]; "size": HTMLSelectElement[]}} accumulator
-   * @param {HTMLInputElement | HTMLSelectElement} element
-   * @param {number} index
-   * @param {HTMLInputElement[] | HTMLSelectElement[]} elements
-   * @returns {{"color": HTMLInputElement[]; "size": HTMLSelectElement[]}}
-   */
-  (accumulator, element, index, elements) => {
-    const { dataset } = element;
-    const { dynamicInput } = dataset;
+dynamicBlocks.forEach(dynamicBlock => {
+  /** @type {NodeListOf<HTMLInputElement | HTMLSelectElement>} */
+  const dynamicInputs = dynamicBlock.querySelectorAll('[data-dynamic-input]');
 
-    if (accumulator[dynamicInput]) {
-      accumulator[dynamicInput].push(element);
-    } else {
-      accumulator[dynamicInput] = [element];
-    }
+  /** @type {{color: HTMLInputElement[]; size: HTMLSelectElement[]}} */
+  const dynamicInputsObject = [...dynamicInputs].reduce(
+    /**
+     * @param {{"color": HTMLInputElement[]; "size": HTMLSelectElement[]}} accumulator
+     * @param {HTMLInputElement | HTMLSelectElement} element
+     * @param {number} index
+     * @param {HTMLInputElement[] | HTMLSelectElement[]} elements
+     * @returns {{"color": HTMLInputElement[]; "size": HTMLSelectElement[]}}
+     */
+    (accumulator, element, index, elements) => {
+      const { dataset } = element;
+      const { dynamicInput } = dataset;
 
-    return accumulator;
-  }, {});
-
-Object.entries(dynamicInputsObject).forEach(([type, elements]) => {
-  const dynamicOutputs = document.querySelectorAll(`[data-dynamic-output="${type}"]`);
-
-  if (dynamicOutputs.length) {
-    changeOutput();
-
-    elements.forEach(
-      /** @param {HTMLInputElement | HTMLSelectElement} element */
-      element => {
-        element.addEventListener("change", changeOutput);
-      });
-
-    function changeOutput() {
-      let output;
-
-      if (type === "color") {
-        const checkedRadio = elements.find(element => element.checked);
-        const radioContainer = checkedRadio?.closest(".product-radio");
-        const radioLabel = radioContainer?.querySelector(".product-radio__label .visually-hidden");
-
-        output = radioLabel?.textContent;
-      } else if (type === "size") {
-        output = elements[0].value;
+      if (accumulator[dynamicInput]) {
+        accumulator[dynamicInput].push(element);
+      } else {
+        accumulator[dynamicInput] = [element];
       }
 
-      dynamicOutputs.forEach(dynamicOutput => {
-        dynamicOutput.textContent = output;
-      });
+      return accumulator;
+    }, {});
+
+  Object.entries(dynamicInputsObject).forEach(([type, elements]) => {
+    const dynamicOutputs = dynamicBlock.querySelectorAll(`[data-dynamic-output="${type}"]`);
+
+    if (dynamicOutputs.length) {
+      changeOutput();
+
+      elements.forEach(
+        /** @param {HTMLInputElement | HTMLSelectElement} element */
+        element => {
+          element.addEventListener("change", changeOutput);
+        });
+
+      function changeOutput() {
+        let output;
+
+        if (type === "color") {
+          const checkedRadio = elements.find(element => element.checked);
+          const radioContainer = checkedRadio?.closest(".product-radio");
+          const radioLabel = radioContainer?.querySelector(".product-radio__label .visually-hidden");
+
+          output = radioLabel?.textContent;
+        } else if (type === "size") {
+          output = elements[0].value;
+        }
+
+        dynamicOutputs.forEach(dynamicOutput => {
+          dynamicOutput.textContent = output;
+        });
+      }
     }
-  }
+  });
 });

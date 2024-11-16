@@ -18,3 +18,5 @@ import "./scripts/product-colors.js";
 import "./scripts/product-images.js";
 import "./scripts/fullscreen.js";
 import "./scripts/product-output.js";
+import "./scripts/dialog-cart-remove.js";
+import "./scripts/product-dialog.js";
