@@ -15,3 +15,6 @@ import "./scripts/remove-cart-item.js";
 import "./scripts/filter.js";
 import "./scripts/catalog-grid.js";
 import "./scripts/product-colors.js";
+import "./scripts/product-images.js";
+import "./scripts/fullscreen.js";
+import "./scripts/product-output.js";

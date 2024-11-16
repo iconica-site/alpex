@@ -1,0 +1,237 @@
+<section class="product" aria-labelledby="title-product">
+  <div class="product__container container">
+    <div class="product__main">
+      <div class="product__sliders">
+        <div class="product__slider product-slider swiper" style="--product-image-zoom: 3;">
+          <div class="product-slider__wrapper swiper-wrapper">
+            @@loop("sliders/slider.html", "json/product-slider.json")
+          </div>
+          <button class="product-slider__full product-full" aria-label="#">
+            <svg class="product-full__icon product-full__icon--full" width="20" height="20" aria-hidden="true">
+              <use xlink:href="#icon-full"></use>
+            </svg>
+            <svg class="product-full__icon product-full__icon--exit" width="20" height="20" aria-hidden="true">
+              <use xlink:href="#icon-exit"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="product__thumbs product-thumbs">
+          <div class="product-thumbs__button product-thumbs__button--prev" aria-hidden="true">
+            <svg width="100%" height="100%">
+              <use xlink:href="#icon-prev-arrow"></use>
+            </svg>
+          </div>
+          <div class="product-thumbs__slider swiper">
+            <div class="product-thumbs__wrapper swiper-wrapper">
+              @@loop("sliders/thumb.html", "json/product-slider.json")
+            </div>
+          </div>
+          <div class="product-thumbs__button product-thumbs__button--next" aria-hidden="true">
+            <svg width="100%" height="100%">
+              <use xlink:href="#icon-next-arrow"></use>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="product__content">
+        <h2 class="product__title">Куртка мужская зимняя</h2>
+        <ul class="product__info product-info">
+          <li class="product-info__item">
+            <h3 class="product-info__label">Бренд:</h3>
+            <div class="product-info__text">
+              <a class="product-info__link" href="#">Alpex</a>
+            </div>
+          </li>
+          <li class="product-info__item">
+            <h3 class="product-info__label">Артикул:</h3>
+            <div class="product-info__text">TRF14-323&#32;<span class="product-info__output" data-dynamic-output="color">Черный</span></div>
+          </li>
+        </ul>
+        <form class="product__form product-form" id="product-form" action="#">
+          <div class="product-form__inputs product-inputs">
+            <div class="product-inputs__item">
+              <label class="product-inputs__label product-label" for="product-inputs-select">
+                <span class="product-label__text">Размер:</span>
+                <span class="product-label__output" data-dynamic-output="size">170-88-76(XS)</span>
+              </label>
+              <div class="product-inputs__input">
+                <select class="product-inputs__select" id="product-inputs-select" name="product-inputs-select" data-dynamic-input="size">
+                  <option value="170-88-76(XS)">170-88-76(XS)</option>
+                  <option value="176-92-80(S)">176-92-80(S)</option>
+                  <option value="182-96-84(M)">182-96-84(M)</option>
+                  <option value="182-100-88(L)">182-100-88(L)</option>
+                  <option value="182-104-92(XL)">182-104-92(XL)</option>
+                  <option value="182-108-96(XXL)">182-108-96(XXL)</option>
+                  <option value="182-112-100(xxxl)">182-112-100(xxxl)</option>
+                  <option value="188-116-104(4xl)">188-116-104(4xl)</option>
+                </select>
+                <span class="product-inputs__icon" aria-hidden="true">
+                  <svg width="20" height="20">
+                    <use xlink:href="#icon-down"></use>
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <div class="product-inputs__item">
+              <div class="product-inputs__label product-label">
+                <span class="product-label__text">Цвет:</span>
+                <span class="product-label__output" data-dynamic-output="color">Черный</span>
+              </div>
+              <div class="product-inputs__radios product-radios">
+                <div class="product-radios__item product-radio">
+                  <label class="product-radio__label" for="product-radio-[Черный]">
+                    <span class="product-radio__icon" aria-hidden="true" style="--product-radio-icon-background-color: #00000c;">
+                      <svg width="20" height="20">
+                        <use xlink:href="#icon-check"></use>
+                      </svg>
+                    </span>
+                    <span class="visually-hidden">Черный</span>
+                  </label>
+                  <input class="product-radio__input visually-hidden" id="product-radio-[Черный]" name="product-radio-color" type="radio" value="#" checked data-dynamic-input="color">
+                </div>
+                <div class="product-radios__item product-radio">
+                  <label class="product-radio__label" for="product-radio-[Красный]">
+                    <span class="product-radio__icon" aria-hidden="true" style="--product-radio-icon-background-color: #ff0408;">
+                      <svg width="20" height="20">
+                        <use xlink:href="#icon-check"></use>
+                      </svg>
+                    </span>
+                    <span class="visually-hidden">Красный</span>
+                  </label>
+                  <input class="product-radio__input visually-hidden" id="product-radio-[Красный]" name="product-radio-color" type="radio" value="#" data-dynamic-input="color">
+                </div>
+                <div class="product-radios__item product-radio">
+                  <label class="product-radio__label" for="product-radio-[Охра]">
+                    <span class="product-radio__icon" aria-hidden="true" style="--product-radio-icon-background-color: #ffc678;">
+                      <svg width="20" height="20">
+                        <use xlink:href="#icon-check"></use>
+                      </svg>
+                    </span>
+                    <span class="visually-hidden">Охра</span>
+                  </label>
+                  <input class="product-radio__input visually-hidden" id="product-radio-[Охра]" name="product-radio-color" type="radio" value="#" data-dynamic-input="color">
+                </div>
+                <div class="product-radios__item product-radio">
+                  <label class="product-radio__label" for="product-radio-[Табачный]">
+                    <span class="product-radio__icon" aria-hidden="true" style="--product-radio-icon-background-color: #838383;">
+                      <svg width="20" height="20">
+                        <use xlink:href="#icon-check"></use>
+                      </svg>
+                    </span>
+                    <span class="visually-hidden">Табачный</span>
+                  </label>
+                  <input class="product-radio__input visually-hidden" id="product-radio-[Табачный]" name="product-radio-color" type="radio" value="#" data-dynamic-input="color">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="product-form__price product-price">
+            <span class="product-price__value">11 000</span>
+            <span class="product-price__currency">₽</span>
+          </div>
+          <div class="product-form__row">
+            <div class="product-form__counter product-counter" data-counter>
+              <input class="product-counter__input" id="product-counter-number" name="product-counter-number" type="number" inputmode="numeric" value="1" min="1" max="5" step="1" required data-input>
+              <div class="product-counter__buttons">
+                <button class="product-counter__button" type="button" aria-label="#" data-up>
+                  <svg width="15" height="15" aria-hidden="true">
+                    <use xlink:href="#icon-up-arrow"></use>
+                  </svg>
+                </button>
+                <button class="product-counter__button" type="button" aria-label="#" data-down>
+                  <svg width="15" height="15" aria-hidden="true">
+                    <use xlink:href="#icon-down"></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <button class="product-form__button" type="submit">Добавить в корзину</button>
+          </div>
+        </form>
+        <div class="product__badge product__badge--green">Осталось мало</div>
+      </div>
+      <div class="product__tabs product-tabs" data-tabs>
+        <div class="product-tabs__buttons">
+          <div class="product-tabs__buttons-inner">
+            <button class="product-tabs__button active" data-tab="description">Описание</button>
+            <button class="product-tabs__button" data-tab="characteristics">Характеристики</button>
+          </div>
+        </div>
+        <div class="product-tabs__panels">
+          <div class="product-tabs__panel" data-panel="description">
+            <div class="product-tabs__text">
+              <p>Модная брендовая мужская куртка зимняя ALPEX . Это куртка пуховик для зимы, которая рассчитана на температуру от 0 до – 30 . Черная классика, выполнена из мембранной ткани (дышащая
+                мембрана 5000/5000
+                премиум качества с фирменным покрытием TEFLON ). Покрытие делает куртку водонепроницаемой. Тепло сохраняется благодаря утеплителю холлофайбер на 300 грамм. Застежка на двухзамковую
+                молнию с
+                ветрозащитной планкой на магнитах. Модель снабжена четырьмя вместительными карманами на молнии, также есть внутренний потайной карман и потайной карман в правом рукаве.</p>
+              <p>УХОД:Бережная стирка 30°С, без отжима.</p>
+              <p>СОСТАВ: ткань верха «Диагональ» 75*75 TPU DWR; подкладка 100% полиэстер, стежка ромб 10*10см.; утеплитель Холлофайбер 300 г/м².</p>
+            </div>
+          </div>
+          <div class="product-tabs__panel" data-panel="characteristics" hidden>
+            <ul class="product-tabs__info product-info">
+              <li class="product-info__item">
+                <h3 class="product-info__label">Бренд:</h3>
+                <div class="product-info__text">
+                  <a class="product-info__link" href="#">Alpex</a>
+                </div>
+              </li>
+              <li class="product-info__item">
+                <h3 class="product-info__label">Артикул:</h3>
+                <div class="product-info__text">TRF14-323&#32;<span class="product-info__output" data-dynamic-output="color">Черный</span></div>
+              </li>
+            </ul>
+            <div class="product-tabs__table product-table">
+              <h3 class="product-table__title">Характеристики</h3>
+              <ul class="product-table__grid">
+                <li class="product-table__item">
+                  <h4 class="product-table__label">Страна производства</h4>
+                  <div class="product-table__value">Россия</div>
+                </li>
+                <li class="product-table__item">
+                  <h4 class="product-table__label">Плотность синтетического утеплителя</h4>
+                  <div class="product-table__value">300 г/кв.м</div>
+                </li>
+                <li class="product-table__item">
+                  <h4 class="product-table__label">Особенности модели</h4>
+                  <div class="product-table__value">Ветро и влагозащитная</div>
+                </li>
+                <li class="product-table__item">
+                  <h4 class="product-table__label">Температурный режим</h4>
+                  <div class="product-table__value">От 0°С до -30°С</div>
+                </li>
+                <li class="product-table__item">
+                  <h4 class="product-table__label">Утеплитель</h4>
+                  <div class="product-table__value">холлофайбер</div>
+                </li>
+                <li class="product-table__item">
+                  <h4 class="product-table__label">Фактура материала</h4>
+                  <div class="product-table__value">мембрана</div>
+                </li>
+                <li class="product-table__item">
+                  <h4 class="product-table__label">Сезон</h4>
+                  <div class="product-table__value">Зима</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="product__comments product-comments">
+      <div class="product-comments__header">
+        <div class="product-comments__icon" aria-hidden="true">
+          <svg width="24" height="24">
+            <use xlink:href="#icon-comment"></use>
+          </svg>
+        </div>
+        <h3 class="product-comments__title">Комментарии</h3>
+        <div class="product-comments__count">0</div>
+      </div>
+      <div class="product-comments__inner">
+        <p class="product-comments__text">Еще нет отзывов.</p>
+      </div>
+    </div>
+  </div>
+</section>

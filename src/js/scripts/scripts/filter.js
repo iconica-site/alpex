@@ -13,9 +13,9 @@ if (filterDialog) {
 /** @type {HTMLElement} */
 const filter = document.querySelector(".filter");
 /** @type {NodeListOf<HTMLInputElement>} */
-const inputs = filter.querySelectorAll("input");
+const inputs = filter?.querySelectorAll("input");
 
-if (inputs.length) {
+if (inputs?.length) {
   /** @type {HTMLInputElement[]} */
   const numberInputs = [...inputs].filter(/** @param {HTMLInputElement} input */ input => input.type === "number");
   /** @type {HTMLInputElement[]} */

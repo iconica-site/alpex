@@ -459,6 +459,10 @@
       color: variables.$color-hover;
     }
 
+    @media (max-width: 992px) {
+      display: none;
+    }
+
     &::before,
     &::after {
       content: "";
