@@ -1,0 +1,264 @@
+@use "../../../functions/functions";
+@use "../../../mixins/mixins";
+@use "../../../variables/variables";
+
+.order {
+  padding-block: 20px;
+
+  // .order__container
+  &__container {
+  }
+
+  // .order__inner
+  &__inner {
+    display: grid;
+    align-items: start;
+    gap: 20px;
+
+    @media (min-width: #{992 + 0.1px}) {
+      grid-template-columns: 1fr 380px;
+    }
+  }
+
+  // .order__forms
+  &__forms {
+    counter-reset: forms;
+  }
+
+  // .order__form
+  &__form {
+    &:not(:last-child) {
+      margin-block-end: 20px;
+    }
+  }
+
+  // .order__cart
+  &__cart {
+  }
+}
+
+.order-cart {
+  padding: 20px;
+  border: 1px solid variables.$color-border;
+  border-radius: 5px;
+
+  // .order-cart__count
+  &__count {
+    margin-block-end: 10px;
+  }
+
+  // .order-cart__spoilers
+  &__spoilers {
+    margin-block-end: 20px;
+  }
+
+  // .order-cart__item
+  &__item {
+    padding-block: 10px;
+    color: variables.$color-text-2;
+    border-block-start: 1px solid variables.$color-border;
+
+    &:last-child {
+      padding-block-end: 0;
+    }
+  }
+
+  // .order-cart__row
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    &:not(:last-child) {
+      margin-block-end: 5px;
+    }
+  }
+
+  // .order-cart__label
+  &__label {
+    font-weight: 500;
+  }
+
+  // .order-cart__value
+  &__value {
+    font-weight: 600;
+    font-size: 16px;
+    white-space: nowrap;
+  }
+}
+
+.order-spoilers {
+  // .order-spoilers__item
+  &__item {
+    &:not(:last-child) {
+      margin-block-end: 20px;
+    }
+  }
+
+  // .order-spoilers__title
+  &__title {
+    margin-block-end: 10px;
+    color: variables.$color-text-2;
+    text-transform: capitalize;
+  }
+
+  // .order-spoilers__button
+  &__button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: color;
+      transition-duration: 0.3s;
+    }
+
+    @include mixins.hover {
+      color: variables.$color-hover;
+    }
+  }
+
+  // .order-spoilers__label
+  &__label {
+  }
+
+  // .order-spoilers__icon
+  &__icon {
+    flex: 0 0 auto;
+    font-size: 0;
+
+    .spoiler-active & {
+      transform: rotate(180deg);
+    }
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: transform;
+      transition-duration: 0.3s;
+    }
+  }
+
+  // .order-spoilers__region
+  &__region {
+  }
+
+  // .order-spoilers__inner
+  &__inner {
+  }
+
+  // .order-spoilers__card
+  &__card {
+    &:not(:last-child) {
+      margin-block-end: 20px;
+    }
+  }
+}
+
+.order-card {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  align-items: start;
+  gap: 10px;
+
+  // .order-card__image
+  &__image {
+    aspect-ratio: 70 / 84.53;
+    font-size: 0;
+    border: 1px solid variables.$color-border;
+    border-radius: 5px;
+
+    img {
+      object-fit: contain;
+    }
+  }
+
+  // .order-card__content
+  &__content {
+    > *:last-child {
+      margin-block-end: 0;
+    }
+  }
+
+  // .order-card__header
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-block-end: 5px;
+    color: variables.$color-text-2;
+  }
+
+  // .order-card__title
+  &__title {
+    a {
+      @include mixins.prefers-reduced-motion {
+        transition-property: color;
+        transition-duration: 0.3s;
+      }
+
+      @include mixins.hover {
+        color: variables.$color-hover;
+      }
+    }
+  }
+
+  // .order-card__symbol
+  &__symbol {
+  }
+
+  // .order-card__count
+  &__count {
+  }
+
+  // .order-card__info
+  &__info {
+    margin-block-end: 5px;
+  }
+
+  // .order-card__price
+  &__price {
+    font-weight: 700;
+    font-size: 16px;
+  }
+}
+
+.order-info {
+  // .order-info__item
+  &__item {
+    &:not(:last-child) {
+      margin-block-end: 5px;
+    }
+  }
+
+  // .order-info__label
+  &__label {
+    display: inline;
+    font-weight: 500;
+    color: variables.$color-text-2;
+
+    &::after {
+      content: " ";
+    }
+  }
+
+  // .order-info__text
+  &__text {
+    display: inline;
+    white-space: nowrap;
+  }
+}
+
+.order-price {
+  color: variables.$color-text-2;
+
+  // .order-price__value
+  &__value {
+    &::after {
+      content: " ";
+    }
+  }
+
+  // .order-price__currency
+  &__currency {
+  }
+}

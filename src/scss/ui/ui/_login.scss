@@ -41,8 +41,105 @@
   &--wide {
   }
 
+  // .login-form--disabled
+  &--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    user-select: none;
+  }
+
+  // .login-form--checked
+  &--checked {
+  }
+
   > *:last-child {
     margin-block-end: 0;
+  }
+
+  // .login-form__header
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+
+  // .login-form__icon
+  &__icon {
+    flex: 0 0 auto;
+    font-size: 0;
+    color: #4cbb6c;
+  }
+
+  // .login-form__title
+  &__title {
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: variables.$color-text-2;
+
+    &::before {
+      content: counter(forms) ". ";
+      counter-increment: forms;
+      display: inline-block;
+      min-inline-size: 38px;
+    }
+
+    .login-form--checked & {
+      &::before {
+        position: absolute;
+        inline-size: 1px;
+        block-size: 1px;
+        margin: -1px;
+        padding: 0;
+        clip-path: inset(100%);
+        clip: rect(0 0 0 0);
+        overflow: hidden;
+        white-space: nowrap;
+        border: none;
+        outline: none;
+        outline-offset: 0;
+      }
+    }
+  }
+
+  // .login-form__edit
+  &__edit {
+    margin-inline-start: auto;
+  }
+
+  // .login-form__inners
+  &__inners {
+    margin-block-start: 30px;
+
+    .login-form--disabled &,
+    .login-form--checked & {
+      display: none;
+    }
+  }
+
+  // .login-form__radios
+  &__radios {
+    margin-block-end: 30px;
+  }
+
+  // .login-form__inner
+  &__inner {
+    &[data-personal="guest"] {
+      .login-form__inners:has(.order-radio__input[data-personal="guest"]:not(:checked)) & {
+        display: none;
+      }
+    }
+
+    &[data-personal="login"] {
+      .login-form__inners:has(.order-radio__input[data-personal="login"]:not(:checked)) & {
+        display: none;
+      }
+    }
+
+    > *:last-child {
+      margin-block-end: 0;
+    }
   }
 
   // .login-form__inputs
@@ -78,6 +175,11 @@
     }
   }
 
+  // .login-form__next
+  &__next {
+    margin-block-start: 30px;
+  }
+
   // .login-form__button
   &__button {
     --outline-color: #{variables.$color-hover};
@@ -100,13 +202,24 @@
     background-color: variables.$color-hover;
     border-radius: 5px;
 
+    &:disabled {
+      background-color: #878787;
+      cursor: not-allowed;
+    }
+
+    &:not(:disabled) {
+      @include mixins.hover {
+        background-color: variables.$color-text-2;
+      }
+    }
+
+    .login-form__next & {
+      margin-inline: auto 0;
+    }
+
     @include mixins.prefers-reduced-motion {
       transition-property: background-color;
       transition-duration: 0.3s;
-    }
-
-    @include mixins.hover {
-      background-color: variables.$color-text-2;
     }
   }
 
@@ -118,6 +231,82 @@
     > *:last-child {
       margin-block-end: 0;
     }
+  }
+}
+
+.login-edit {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: variables.$color-text-2;
+
+  @include mixins.prefers-reduced-motion {
+    transition-property: color;
+    transition-duration: 0.3s;
+  }
+
+  @include mixins.hover {
+    color: variables.$color-hover;
+  }
+
+  // .login-edit__icon
+  &__icon {
+    flex: 0 0 auto;
+    font-size: 0;
+  }
+
+  // .login-edit__text
+  &__text {
+  }
+}
+
+.order-radios {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  inline-size: fit-content;
+
+  &:has(.order-radio__input:focus-visible) {
+    outline: 2px solid;
+    outline-offset: 2px;
+  }
+
+  // .order-radios__radio
+  &__radio {
+    &:not(:last-child) {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      &::after {
+        content: "|";
+      }
+    }
+  }
+}
+
+.order-radio {
+  // .order-radio__label
+  &__label {
+    font-weight: 600;
+    color: variables.$color-text-2;
+
+    .order-radio:has(.order-radio__input:checked) & {
+      color: variables.$color-hover;
+    }
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: color;
+      transition-duration: 0.3s;
+    }
+
+    @include mixins.hover {
+      color: variables.$color-hover;
+    }
+  }
+
+  // .order-radio__input
+  &__input {
   }
 }
 
@@ -218,6 +407,13 @@
     }
   }
 
+  // .login-inputs__text
+  &__text {
+    @media (min-width: #{768 + 0.1px}) {
+      grid-column-start: 2;
+    }
+  }
+
   // .login-inputs__button
   &__button {
     --outline-color: #{variables.$color-hover};
@@ -267,6 +463,11 @@
 
   // .login-inputs__radios
   &__radios {
+    .login-inputs__item:not(:has(.login-inputs__label)) & {
+      @media (min-width: #{768 + 0.1px}) {
+        grid-column-start: 2;
+      }
+    }
   }
 
   // .login-inputs__checkbox
@@ -349,6 +550,13 @@
       color: rgba($color: variables.$color-text-2, $alpha: 0.54);
     }
   }
+
+  // .login-inputs__ways
+  &__ways {
+    @media (min-width: #{768 + 0.1px}) {
+      grid-column: span 2;
+    }
+  }
 }
 
 .login-radios {
@@ -357,6 +565,12 @@
   align-items: center;
   row-gap: 7px;
   column-gap: 14px;
+
+  // .login-radios--column
+  &--column {
+    flex-direction: column;
+    align-items: start;
+  }
 
   &:has(.login-radio__input:focus-visible) {
     outline: 2px solid;
@@ -510,5 +724,120 @@
 
   // .login-prev__text
   &__text {
+  }
+}
+
+.order-ways {
+  padding: 10px;
+  border: 1px solid variables.$color-border;
+  border-radius: 5px;
+
+  &:has(.ways-radio__input:focus-visible) {
+    outline: 2px solid;
+    outline-offset: 2px;
+  }
+
+  // .order-ways__radio
+  &__radio {
+    &:not(:last-child) {
+      margin-block-end: 20px;
+    }
+  }
+}
+
+.ways-radio {
+  // .ways-radio__label
+  &__label {
+    display: grid;
+    grid-template-columns: 16px 1fr;
+    row-gap: 5px;
+    column-gap: 20px;
+    align-items: center;
+    color: variables.$color-text-2;
+
+    @media (min-width: #{375 + 0.1px}) {
+      grid-template-columns: 16px 50px auto;
+    }
+
+    @media (min-width: #{768 + 0.1px}) {
+      grid-template-columns: 16px 50px auto 1fr auto;
+    }
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: color;
+      transition-duration: 0.3s;
+    }
+
+    @include mixins.hover {
+      color: variables.$color-hover;
+    }
+  }
+
+  // .ways-radio__disc
+  &__disc {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    font-size: 0;
+    border: 2px solid;
+    border-radius: 50%;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
+      inline-size: 75%;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+
+      @include mixins.prefers-reduced-motion {
+        transition-property: background-color;
+        transition-duration: 0.3s;
+      }
+
+      .ways-radio:has(.ways-radio__input:checked) & {
+        background-color: currentColor;
+      }
+    }
+  }
+
+  // .ways-radio__icon
+  &__icon {
+    inline-size: 50px;
+    aspect-ratio: 1 / 1;
+    font-size: 0;
+
+    img {
+      object-fit: contain;
+    }
+  }
+
+  // .ways-radio__title
+  &__title {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: calc(17 / 15);
+
+    @media (max-width: 375px) {
+      grid-column: 2 / 3;
+    }
+  }
+
+  // .ways-radio__text
+  &__text {
+    font-weight: 500;
+
+    @media (max-width: 768px) {
+      grid-column: 2 / 4;
+    }
+
+    @media (max-width: 375px) {
+      grid-column: 2 / 3;
+    }
+  }
+
+  // .ways-radio__input
+  &__input {
   }
 }

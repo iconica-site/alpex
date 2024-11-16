@@ -41,6 +41,8 @@
 
     body>div {
       display: flex;
+      flex-direction: column;
+      gap: 30px;
       min-block-size: 100%;
       padding: 15px;
     }
@@ -48,7 +50,7 @@
     body>div>div {
       inline-size: 100%;
       max-inline-size: 375px;
-      margin: auto;
+      margin-inline: auto;
       padding: 15px;
       background-color: #fff;
       box-shadow: 0 0 0 2px #fff;
@@ -56,9 +58,24 @@
       border-radius: 15px;
     }
 
+    body>div>div:first-child {
+      margin-block-start: auto;
+    }
+
+    body>div>div:last-child {
+      margin-block-end: auto;
+    }
+
     h1 {
       margin-block-end: 0.5em;
       font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    h2 {
+      margin-block-end: 0.5em;
+      font-size: 1.5rem;
       font-weight: 700;
       text-align: center;
     }
@@ -152,9 +169,6 @@
           <a href="cart.html" target="_blank">Корзина</a>
         </li>
         <li>
-          <a href="order.html" target="_blank">Оформить заказ</a>
-        </li>
-        <li>
           <a href="delivery.html" target="_blank">Доставка</a>
         </li>
         <li>
@@ -186,6 +200,23 @@
         </li>
         <li>
           <a href="conditions.html" target="_blank">Условия обработки персональных данных</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h2>Оформить заказ</h2>
+      <ul>
+        <li>
+          <a href="personal-data.html" target="_blank">Личные данные</a>
+        </li>
+        <li>
+          <a href="addresses.html" target="_blank">Адреса</a>
+        </li>
+        <li>
+          <a href="way.html" target="_blank">Способ доставки</a>
+        </li>
+        <li>
+          <a href="pay.html" target="_blank">Оплата</a>
         </li>
       </ul>
     </div>

@@ -1,0 +1,205 @@
+<section class="order" aria-labelledby="title-order">
+  <div class="order__container container">
+    <h2 class="visually-hidden" id="title-order">#</h2>
+    <div class="order__inner">
+      <div class="order__forms">
+        <form class="order__form login-form" id="order-form" action="#">
+          <div class="login-form__header">
+            <h3 class="login-form__title">Личные данные</h3>
+          </div>
+          <div class="login-form__inners">
+            <div class="login-form__radios order-radios">
+              <div class="order-radios__radio order-radio">
+                <label class="order-radio__label" for="order-radio-guest">Заказать как гость</label>
+                <input class="order-radio__input visually-hidden" id="order-radio-guest" name="order-radio" type="radio" value="#" data-personal="guest" checked>
+              </div>
+              <div class="order-radios__radio order-radio">
+                <label class="order-radio__label" for="order-radio-login">Войти</label>
+                <input class="order-radio__input visually-hidden" id="order-radio-login" name="order-radio" type="radio" value="#" data-personal="login">
+              </div>
+            </div>
+            <div class="login-form__inner" data-personal="guest">
+              <div class="login-form__inputs login-inputs">
+                <div class="login-inputs__item">
+                  <div class="login-inputs__label">Форма обращения</div>
+                  <div class="login-inputs__radios login-radios">
+                    <div class="login-radios__radio login-radio">
+                      <label class="login-radio__label" for="login-radio-man">
+                        <span class="login-radio__icon" aria-hidden="true"></span>
+                        <span class="login-radio__text">Уважаемый</span>
+                      </label>
+                      <input class="login-radio__input visually-hidden" id="login-radio-man" name="login-radio" type="radio" value="#" required>
+                    </div>
+                    <div class="login-radios__radio login-radio">
+                      <label class="login-radio__label" for="login-radio-woman">
+                        <span class="login-radio__icon" aria-hidden="true"></span>
+                        <span class="login-radio__text">Уважаемая</span>
+                      </label>
+                      <input class="login-radio__input visually-hidden" id="login-radio-woman" name="login-radio" type="radio" value="#" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="login-inputs__item">
+                  <label class="login-inputs__label" for="registration-inputs-name">Имя</label>
+                  <div class="login-inputs__input">
+                    <input id="registration-inputs-name" name="registration-inputs-email" type="text" inputmode="text" required>
+                  </div>
+                  <p class="login-inputs__caption">Допускаются только буквы и точка (.), за которыми следует пробел.</p>
+                </div>
+                <div class="login-inputs__item">
+                  <label class="login-inputs__label" for="registration-inputs-surname">Фамилия</label>
+                  <div class="login-inputs__input">
+                    <input id="registration-inputs-surname" name="registration-inputs-surname" type="text" inputmode="text" required>
+                  </div>
+                  <p class="login-inputs__caption">Допускаются только буквы и точка (.), за которыми следует пробел.</p>
+                </div>
+                <div class="login-inputs__item">
+                  <label class="login-inputs__label" for="registration-inputs-email">Email</label>
+                  <div class="login-inputs__input">
+                    <input id="registration-inputs-email" name="registration-inputs-email" type="email" inputmode="email" required>
+                  </div>
+                </div>
+                <div class="login-inputs__text">
+                  <p><b>Завести аккаунт</b>&#32;<em>(необязательный)</em></p>
+                  <p>И сэкономьте время на следующем заказе!</p>
+                </div>
+                <div class="login-inputs__item">
+                  <label class="login-inputs__label" for="registration-inputs-password">Пароль</label>
+                  <div class="login-inputs__input" data-password>
+                    <input id="registration-inputs-password" name="registration-inputs-password" type="password" required data-input>
+                    <button class="login-inputs__button" type="button" data-show-text="Показать" data-hide-text="Скрыть" data-button>Показать</button>
+                  </div>
+                  <p class="login-inputs__caption">Необязательный</p>
+                </div>
+                <div class="login-inputs__item">
+                  <div class="login-inputs__checkbox login-checkbox">
+                    <label class="login-checkbox__label" for="login-checkbox-privacy">
+                      <span class="login-checkbox__icon" aria-hidden="true">
+                        <svg width="100%" height="100%" aria-hidden="true">
+                          <use xlink:href="#icon-check"></use>
+                        </svg>
+                      </span>
+                      <span class="login-checkbox__text">Я принимаю условия&#32;<a href="privacy.html" target="_blank">политики конфиденциальности</a>&#32;и&#32;<a href="conditions.html"
+                          target="_blank">обработки
+                          персональных данных</a></span>
+                    </label>
+                    <input class="login-checkbox__input visually-hidden" id="login-checkbox-privacy" name="login-checkbox-privacy" type="checkbox" value="#">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="login-form__inner" data-personal="login">
+              <div class="login-form__inputs login-inputs">
+                <div class="login-inputs__item">
+                  <label class="login-inputs__label" for="login-inputs-email">Email</label>
+                  <div class="login-inputs__input">
+                    <input id="login-inputs-email" name="login-inputs-email" type="email" inputmode="email" required>
+                  </div>
+                </div>
+                <div class="login-inputs__item">
+                  <label class="login-inputs__label" for="login-inputs-password">Пароль</label>
+                  <div class="login-inputs__input" data-password>
+                    <input id="login-inputs-password" name="login-inputs-password" type="password" required data-input>
+                    <button class="login-inputs__button" type="button" data-show-text="Показать" data-hide-text="Скрыть" data-button>Показать</button>
+                  </div>
+                </div>
+              </div>
+              <p class="login-form__text">
+                <a class="login-form__link" href="recovery.html">Забыли пароль? Восстановить</a>
+              </p>
+            </div>
+            <div class="login-form__next">
+              <button class="login-form__button" type="submit">Продолжать</button>
+            </div>
+          </div>
+        </form>
+        <div class="order__form login-form login-form--disabled">
+          <div class="login-form__header">
+            <h3 class="login-form__title">Адреса</h3>
+          </div>
+        </div>
+        <div class="order__form login-form login-form--disabled">
+          <div class="login-form__header">
+            <h3 class="login-form__title">способ доставки</h3>
+          </div>
+        </div>
+        <div class="order__form login-form login-form--disabled">
+          <div class="login-form__header">
+            <h3 class="login-form__title">Оплата</h3>
+          </div>
+        </div>
+      </div>
+      <div class="order__cart order-cart">
+        <div class="order-cart__count">3 шт.</div>
+        <div class="order-cart__spoilers order-spoilers" data-spoilers>
+          <div class="order-spoilers__item">
+            <h3 class="order-spoilers__title">
+              <button class="order-spoilers__button" data-spoiler="button">
+                <span class="order-spoilers__label">показать детали</span>
+                <span class="order-spoilers__icon" aria-hidden="true">
+                  <svg width="24" height="24">
+                    <use xlink:href="#icon-down"></use>
+                  </svg>
+                </span>
+              </button>
+            </h3>
+            <div class="order-spoilers__region" data-spoiler="region" hidden>
+              <div class="order-spoilers__inner">
+                <article class="order-spoilers__card order-card">
+                  <a class="order-card__image ibg" href="#">
+                    <img src="@img/images/pages/order/order/1.jpg" alt="#" loading="lazy">
+                  </a>
+                  <div class="order-card__content">
+                    <div class="order-card__header">
+                      <h4 class="order-card__title">
+                        <a href="#">Куртка мужская зимняя</a>
+                      </h4>
+                      <span class="order-card__symbol">×</span>
+                      <span class="order-card__count">1</span>
+                    </div>
+                    <ul class="order-card__info order-info">
+                      <li class="order-info__item">
+                        <h5 class="order-info__label">Размер:</h5>
+                        <div class="order-info__text">170-88-76(XS)</div>
+                      </li>
+                      <li class="order-info__item">
+                        <h5 class="order-info__label">Цвет:</h5>
+                        <div class="order-info__text">Табачный</div>
+                      </li>
+                    </ul>
+                    <div class="order-card__price order-price">
+                      <span class="order-price__value">11 000</span>
+                      <span class="order-price__currency">₽</span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="order-cart__item">
+          <div class="order-cart__row">
+            <h3 class="order-cart__label">Сумма</h3>
+            <div class="order-cart__value order-price">
+              <span class="order-price__value">11 000</span>
+              <span class="order-price__currency">₽</span>
+            </div>
+          </div>
+          <div class="order-cart__row">
+            <h3 class="order-cart__label">Доставка</h3>
+            <div class="order-cart__value">Бесплатно!</div>
+          </div>
+        </div>
+        <div class="order-cart__item">
+          <div class="order-cart__row">
+            <h3 class="order-cart__label">Итого, к оплате:</h3>
+            <div class="order-cart__value order-price">
+              <span class="order-price__value">11 000</span>
+              <span class="order-price__currency">₽</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
