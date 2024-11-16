@@ -1,0 +1,22 @@
+<section class="products" aria-labelledby="title-products">
+  <div class="products__container container">
+    <h2 class="products__title" id="title-products">8 товаров из этой же категории</h2>
+    <div class="products__slider">
+      <div class="products__slider-arrow products__slider-arrow--prev" aria-hidden="true">
+        <svg width="100%" height="100%">
+          <use xlink:href="#icon-prev-arrow"></use>
+        </svg>
+      </div>
+      <div class="products-slider swiper">
+        <div class="products-slider__wrapper swiper-wrapper">
+          @@loop("../../../ui/product-slider-item.html", "json/product-item-index-1.json")
+        </div>
+      </div>
+      <div class="products__slider-arrow products__slider-arrow--next" aria-hidden="true">
+        <svg width="100%" height="100%">
+          <use xlink:href="#icon-next-arrow"></use>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>

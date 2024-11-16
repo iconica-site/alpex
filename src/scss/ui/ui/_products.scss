@@ -7,6 +7,7 @@
 
   // .products__container
   &__container {
+    container-type: inline-size;
   }
 
   // .products__title
@@ -57,6 +58,64 @@
     margin-block-start: 30px;
     margin-inline: auto;
     max-inline-size: 200px;
+  }
+
+  // .products__slider
+  &__slider {
+    display: grid;
+    grid-template-rows: calc(((100cqi - (60px + functions.responsive-value(26, 20) * 2))) / 272 * 330) auto;
+    grid-template-columns:
+      30px calc(100% - (60px + functions.responsive-value(26, 20) * 2))
+      30px;
+    grid-template-areas:
+      "leftarrow slider rightarrow"
+      "left slider right";
+    align-items: center;
+    row-gap: 11px;
+    column-gap: functions.responsive-value(26, 20);
+
+    @media (min-width: #{450 + 0.1px}) {
+      grid-template-rows: calc(((100cqi - (60px + functions.responsive-value(26, 20) * 2 + 20px * 1)) / 2) / 272 * 330) auto;
+    }
+
+    @media (min-width: #{768 + 0.1px}) {
+      grid-template-rows: calc(((100cqi - (60px + functions.responsive-value(26, 20) * 2 + 20px * 2)) / 3) / 272 * 330) auto;
+    }
+
+    @media (min-width: #{992 + 0.1px}) {
+      grid-template-rows: calc(((100cqi - (60px + functions.responsive-value(26, 20) * 2 + 26px * 3)) / 4) / 272 * 330) auto;
+    }
+  }
+
+  // .products__slider-arrow
+  &__slider-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1 / 1;
+    font-size: 0;
+    cursor: pointer;
+
+    // calc((100cqi - (60px + functions.responsive-value(26, 20) * 2 + 26px * 3)) / 4 * 330 / 272)
+
+    @include mixins.prefers-reduced-motion {
+      transition-property: color;
+      transition-duration: 0.3s;
+    }
+
+    @include mixins.hover {
+      color: variables.$color-hover;
+    }
+
+    // .products__slider-arrow--prev
+    &--prev {
+      grid-area: leftarrow;
+    }
+
+    // .products__slider-arrow--next
+    &--next {
+      grid-area: rightarrow;
+    }
   }
 }
 
@@ -478,5 +537,18 @@
       --product-card-badge-background-color: #e9f9ee;
       --product-card-badge-border-color: #4cbb6c;
     }
+  }
+}
+
+.products-slider {
+  margin-inline: 0;
+  grid-area: slider;
+
+  // .products-slider__wrapper
+  &__wrapper {
+  }
+
+  // .products-slider__slide
+  &__slide {
   }
 }
